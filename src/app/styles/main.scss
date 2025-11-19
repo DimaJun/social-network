@@ -1,0 +1,23 @@
+@use "./variables/global";
+@use "reset";
+
+body {
+    background: var(--bg-gradient);
+    font: var(--font-m);
+    height: 100vh;
+}
+
+#root {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.app {
+    width: 90vw;
+    height: 90vh;
+    background: var(--color-accent);
+    border-radius: 16px;
+    padding: 12px;
+}

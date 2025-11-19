@@ -1,0 +1,35 @@
+:root {
+    --font-primary: 'Inter', sans-serif;
+    --font-accent: 'Manrope', sans-serif;
+
+    // s
+    --font-s-size: 12px;
+    --font-s-line: 20px;
+    --font-s: var(--font-s-size) / var(--font-s-line) var(--font-primary);
+
+    // m
+    --font-m-size: 16px;
+    --font-m-line: 24px;
+    --font-m: var(--font-m-size) / var(--font-m-line) var(--font-primary);
+
+    // l
+    --font-l-size: 20px;
+    --font-l-line: 28px;
+    --font-l: var(--font-l-size) / var(--font-l-line) var(--font-primary);
+
+    // xl
+    --font-xl-size: 24px;
+    --font-xl-line: 32px;
+    --font-xl: var(--font-xl-size) / var(--font-xl-line) var(--font-primary);
+
+    // COLORS
+    --bg-gradient: radial-gradient(circle,rgba(156, 236, 251, 1) 0%, rgba(101, 199, 247, 1) 50%, rgba(0, 82, 212, 1) 100%);
+    --color-primary: #5cc6ff;
+    --color-secondary: #bcd7ff;
+    --color-accent: #f1f5f9;
+
+    --color-success: #10B981;
+    --color-error: #EF4444;
+    --color-warning: #F59E0B;
+    --color-info: #3B82F6;
+}
