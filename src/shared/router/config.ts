@@ -1,8 +1,8 @@
 export enum Routes {
-    MAIN = 'main',
-    FRIENDS = 'friends',
-    MESSAGES = 'messages',
-    AUTH = 'auth'
+	MAIN = 'main',
+	FRIENDS = 'friends',
+	MESSAGES = 'messages',
+	AUTH = 'auth',
 }
 
 export const getRouteMain = () => '/';

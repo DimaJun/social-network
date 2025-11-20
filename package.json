@@ -9,7 +9,9 @@
         "build:dev": "webpack --env mode=development",
         "generate:slice": "ts-node scripts/createSlice/createSlice.ts",
         "lint": "eslint \"src/**/*.{ts,tsx,js,jsx}\"",
-        "lint:fix": "npm run lint -- --fix"
+        "lint:fix": "npm run lint -- --fix",
+        "format": "prettier --write \"src/**/*.{ts,tsx,js,jsx,json,css}\"",
+        "format:check": "prettier --check \"src/**/*.{ts,tsx,js,jsx,json,css}\""
     },
     "devDependencies": {
         "@eslint/js": "^9.39.1",
@@ -23,7 +25,9 @@
         "@types/webpack-dev-server": "^4.7.1",
         "css-loader": "^7.1.2",
         "eslint": "^9.39.1",
+        "eslint-config-prettier": "^10.1.8",
         "eslint-plugin-import": "^2.32.0",
+        "eslint-plugin-prettier": "^5.5.4",
         "eslint-plugin-react": "^7.37.5",
         "eslint-plugin-react-hooks": "^7.0.1",
         "eslint-webpack-plugin": "^5.0.2",
@@ -31,6 +35,7 @@
         "html-webpack-plugin": "^5.6.5",
         "jiti": "^2.6.1",
         "mini-css-extract-plugin": "^2.9.4",
+        "prettier": "^3.6.2",
         "react-refresh-typescript": "^2.0.11",
         "sass": "^1.94.1",
         "sass-loader": "^16.0.6",
