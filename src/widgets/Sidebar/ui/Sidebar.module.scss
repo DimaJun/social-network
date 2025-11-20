@@ -1,3 +1,18 @@
 .Sidebar {
   /* styles for Sidebar */
 }
+
+.Links {
+    display: flex;
+    flex-direction: column;
+
+    .link {
+        padding: 6px;
+        transition: 0.2s;
+        border-radius: 8px;
+
+        &:hover {
+            background-color: rgba(0, 0, 0, 0.03);
+        }
+    }
+}

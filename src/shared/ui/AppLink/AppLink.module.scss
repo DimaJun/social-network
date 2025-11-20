@@ -1,0 +1,14 @@
+.Link {
+    transition: color 0.2s;
+
+    &:hover {
+        color: var(--color-info);
+    }
+}
+
+.linkContent {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: 60px;
+}
