@@ -1,0 +1,23 @@
+.AppLayout {
+    height: 100%;
+    display: grid;
+    grid-template-columns: var(--sidebar-width) repeat(3, 1fr);
+    grid-template-rows: 60px repeat(3, 1fr);
+    grid-template-areas:
+            "nav nav nav nav"
+            "sidebar content content content"
+            "sidebar content content content"
+            "sidebar content content content";
+}
+
+.Navbar {
+    grid-area: nav;
+}
+
+.Sidebar {
+    grid-area: sidebar;
+}
+
+.content {
+    grid-area: content;
+}

@@ -3,6 +3,7 @@ import HtmlWebpackPlugin from "html-webpack-plugin";
 import {DefinePlugin, ProgressPlugin} from 'webpack'
 import ReactRefreshPlugin from "@pmmmwh/react-refresh-webpack-plugin";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import ESLintWebpackPlugin from "eslint-webpack-plugin";
 
 export function buildPlugins({isDev}: BuildOptions) {
     const isProd = !isDev;
@@ -19,6 +20,11 @@ export function buildPlugins({isDev}: BuildOptions) {
         plugins.push(
             new ReactRefreshPlugin({
                 overlay: false
+            }),
+            new ESLintWebpackPlugin({
+                extensions: ['js', 'jsx', 'ts', 'tsx'],
+                configType: 'flat',
+                emitWarning: isDev
             })
         )
     }
