@@ -1,0 +1,44 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Define gradient for vibrant effect -->
+  <defs>
+    <linearGradient id="vibeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:rgba(156, 236, 251, 1);stop-opacity:1" />
+      <stop offset="50%" style="stop-color:rgba(101, 199, 247, 1);stop-opacity:1" />
+      <stop offset="100%" style="stop-color:rgba(0, 82, 212, 1);stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="glowGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:rgba(156, 236, 251, 1);stop-opacity:0.6" />
+      <stop offset="100%" style="stop-color:rgba(101, 199, 247, 1);stop-opacity:0.6" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background circle with glow effect -->
+  <circle cx="100" cy="100" r="90" fill="url(#glowGradient)" opacity="0.2"/>
+  
+  <!-- Main network nodes forming a "V" shape -->
+  <circle cx="70" cy="60" r="12" fill="url(#vibeGradient)"/>
+  <circle cx="100" cy="100" r="16" fill="url(#vibeGradient)"/>
+  <circle cx="130" cy="60" r="12" fill="url(#vibeGradient)"/>
+  
+  <!-- Connection lines -->
+  <line x1="70" y1="60" x2="100" y2="100" stroke="url(#vibeGradient)" stroke-width="3" stroke-linecap="round"/>
+  <line x1="130" y1="60" x2="100" y2="100" stroke="url(#vibeGradient)" stroke-width="3" stroke-linecap="round"/>
+  
+  <!-- Additional network nodes -->
+  <circle cx="50" cy="90" r="8" fill="url(#vibeGradient)" opacity="0.8"/>
+  <circle cx="150" cy="90" r="8" fill="url(#vibeGradient)" opacity="0.8"/>
+  <circle cx="100" cy="135" r="10" fill="url(#vibeGradient)" opacity="0.9"/>
+  
+  <!-- Secondary connections -->
+  <line x1="50" y1="90" x2="100" y2="100" stroke="url(#vibeGradient)" stroke-width="2" opacity="0.6" stroke-linecap="round"/>
+  <line x1="150" y1="90" x2="100" y2="100" stroke="url(#vibeGradient)" stroke-width="2" opacity="0.6" stroke-linecap="round"/>
+  <line x1="100" y1="100" x2="100" y2="135" stroke="url(#vibeGradient)" stroke-width="2.5" opacity="0.7" stroke-linecap="round"/>
+  
+  <!-- Wave/vibe effects emanating from center -->
+  <circle cx="100" cy="100" r="25" fill="none" stroke="url(#vibeGradient)" stroke-width="1.5" opacity="0.3"/>
+  <circle cx="100" cy="100" r="35" fill="none" stroke="url(#vibeGradient)" stroke-width="1" opacity="0.2"/>
+  
+  <!-- Text -->
+  <text x="100" y="170" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="url(#vibeGradient)">Vibenet</text>
+</svg>

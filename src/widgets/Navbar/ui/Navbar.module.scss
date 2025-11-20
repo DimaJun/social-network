@@ -1,3 +1,15 @@
 .Navbar {
-  /* styles for Navbar */
+    background-color: var(--color-secondary);
+    color: var(--color-info);
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    padding: 10px 30px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font: var(--font-l);
+    font-weight: 700;
+    gap: 8px;
 }

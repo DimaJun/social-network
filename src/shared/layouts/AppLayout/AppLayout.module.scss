@@ -2,7 +2,7 @@
     height: 100%;
     display: grid;
     grid-template-columns: var(--sidebar-width) repeat(3, 1fr);
-    grid-template-rows: 60px repeat(3, 1fr);
+    grid-template-rows: 80px repeat(3, 1fr);
     grid-template-areas:
             "nav nav nav nav"
             "sidebar content content content"
@@ -20,4 +20,5 @@
 
 .content {
     grid-area: content;
+    padding: 10px;
 }
