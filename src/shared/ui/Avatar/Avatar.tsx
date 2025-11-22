@@ -29,15 +29,13 @@ export function Avatar(props: AvatarProps) {
 	}
 
 	return (
-		<div className={s.wrapper}>
-			<img
-				className={classNames(s.Img, { [s.rounded]: rounded }, [className])}
-				src={src}
-				alt={alt}
-				width={size}
-				height={size}
-				{...restProps}
-			/>
-		</div>
+		<img
+			className={classNames(s.Img, { [s.rounded]: rounded }, [className])}
+			src={src}
+			alt={alt}
+			width={size}
+			height={size}
+			{...restProps}
+		/>
 	);
 }

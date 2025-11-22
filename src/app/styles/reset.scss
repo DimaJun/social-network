@@ -2,6 +2,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    scrollbar-width: none;
 
     &:focus {
         outline: 1px solid var(--color-focus);
@@ -20,4 +21,8 @@ li {
 button, input {
     color: inherit;
     font: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font: var(--font-m);
 }

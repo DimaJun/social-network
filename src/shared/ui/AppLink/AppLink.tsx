@@ -16,21 +16,27 @@ interface AppLinkProps {
 export function AppLink(props: AppLinkProps) {
 	const { icon, path, text, className } = props;
 
+	const content = icon ? (
+		<div className={s.linkContent}>
+			{icon && (
+				<Icon
+					Svg={icon}
+					width={20}
+					height={20}
+				/>
+			)}
+			<p>{text}</p>
+		</div>
+	) : (
+		text
+	);
+
 	return (
 		<Link
 			className={classNames(s.Link, {}, [className])}
 			to={path}
 		>
-			<div className={s.linkContent}>
-				{icon && (
-					<Icon
-						Svg={icon}
-						width={20}
-						height={20}
-					/>
-				)}
-				<p>{text}</p>
-			</div>
+			{content}
 		</Link>
 	);
 }

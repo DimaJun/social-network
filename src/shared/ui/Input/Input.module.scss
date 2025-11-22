@@ -6,13 +6,13 @@
 
 .input {
     width: 100%;
-    max-width: 250px;
     padding: 6px 10px;
     border-radius: 10px;
     border: 1px solid var(--color-secondary);
-    background: linear-gradient(135deg, rgba(92, 198, 255, 0.2) 0%, rgba(142, 212, 255, 0.2) 50%, rgba(188, 215, 255, 0.2) 100%);
+    background: transparent;
+    color: var(--color-info);
 
     &::placeholder {
-        opacity: 0.5;
+        opacity: 0.3;
     }
 }

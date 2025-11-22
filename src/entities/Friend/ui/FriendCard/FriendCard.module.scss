@@ -1,0 +1,36 @@
+.card, .wrapper, .actions, .info {
+    display: flex;
+}
+
+.wrapper, .info {
+    flex-direction: column;
+}
+
+.wrapper, .actions {
+    gap: 8px;
+}
+
+.card {
+    align-items: center;
+    padding: 12px;
+    background-color: rgba(206, 206, 206, 0.3);
+    border-radius: 32px;
+    gap: 10px;
+}
+
+.info {
+    .username {
+        font: var(--font-l);
+    }
+
+    .city {
+        font: var(--font-s);
+        font-family: var(--font-accent), serif;
+        font-weight: 600;
+        color: #333;
+    }
+}
+
+.actions {
+    align-items: center;
+}
