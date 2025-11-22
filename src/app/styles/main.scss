@@ -2,8 +2,8 @@
 @use "reset";
 
 body {
-    background: var(--bg-gradient);
     font: var(--font-m);
+    background: var(--bg-gradient);
     height: 100vh;
     color: var(--color-primary);
 }

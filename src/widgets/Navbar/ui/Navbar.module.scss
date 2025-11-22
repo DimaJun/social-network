@@ -4,6 +4,9 @@
     border-top-left-radius: 16px;
     border-top-right-radius: 16px;
     padding: 10px 30px;
+
+    display: flex;
+    align-items: center;
 }
 
 .logo {
@@ -12,4 +15,8 @@
     font: var(--font-l);
     font-weight: 700;
     gap: 8px;
+}
+
+.right {
+    margin-left: auto;
 }
