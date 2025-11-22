@@ -1,9 +1,10 @@
 import s from './MainPage.module.scss';
 
 import { classNames } from '@/shared/helpers/classNames/classNames';
+import { Page } from '@/widgets/Page';
 
 function MainPage() {
-	return <div className={classNames(s.MainPage, {}, [])}>Main Page</div>;
+	return <Page className={classNames(s.MainPage, {}, [])}>Main Page</Page>;
 }
 
 export default MainPage;

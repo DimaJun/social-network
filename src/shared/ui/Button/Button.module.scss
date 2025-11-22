@@ -1,0 +1,71 @@
+.Button {
+    padding: 8px 16px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: inherit;
+    font-family: inherit;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+
+    &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+}
+
+.clear {
+    border: none;
+    background: none;
+}
+
+.outline {
+    border: 1px solid var(--color-secondary);
+    background: transparent;
+
+    &:hover:not(:disabled) {
+        background: linear-gradient(
+                        135deg,
+                        rgba(92, 198, 255, 0.1) 0%,
+                        rgba(142, 212, 255, 0.1) 50%,
+                        rgba(188, 215, 255, 0.1) 100%
+        );
+    }
+
+    &:active:not(:disabled) {
+        background: linear-gradient(
+                        135deg,
+                        rgba(92, 198, 255, 0.2) 0%,
+                        rgba(142, 212, 255, 0.2) 50%,
+                        rgba(188, 215, 255, 0.2) 100%
+        );
+    }
+}
+
+.background {
+    border: 1px solid var(--color-secondary);
+    background: linear-gradient(
+                    135deg,
+                    rgba(92, 198, 255, 0.2) 0%,
+                    rgba(142, 212, 255, 0.2) 50%,
+                    rgba(188, 215, 255, 0.2) 100%
+    );
+
+    &:hover:not(:disabled) {
+        background: linear-gradient(
+                        135deg,
+                        rgba(92, 198, 255, 0.3) 0%,
+                        rgba(142, 212, 255, 0.3) 50%,
+                        rgba(188, 215, 255, 0.3) 100%
+        );
+    }
+
+    &:active:not(:disabled) {
+        background: linear-gradient(
+                        135deg,
+                        rgba(92, 198, 255, 0.4) 0%,
+                        rgba(142, 212, 255, 0.4) 50%,
+                        rgba(188, 215, 255, 0.4) 100%
+        );
+    }
+}

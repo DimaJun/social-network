@@ -5,6 +5,7 @@ import s from './Dropdown.module.scss';
 
 import { classNames } from '@/shared/helpers/classNames/classNames';
 import { Icon } from '@/shared/ui/Icon';
+import { Button } from '@/shared/ui/Button';
 
 type DropdownPosition = 'top left' | 'top right' | 'bottom left' | 'bottom right';
 
@@ -46,12 +47,19 @@ export function Dropdown(props: DropdownProps) {
 							key={item.text}
 							disabled={item.disabled}
 						>
-							<button
-								className={classNames(s.item, { [s.disabled]: item.disabled }, [])}
-							>
-								{item.icon && <Icon Svg={item.icon} />}
-								{item.text}
-							</button>
+							{({ focus }) => (
+								<Button
+									className={classNames(
+										s.item,
+										{ [s.disabled]: item.disabled, [s.focus]: focus },
+										[]
+									)}
+									variant='clear'
+								>
+									{item.icon && <Icon Svg={item.icon} />}
+									{item.text}
+								</Button>
+							)}
 						</MenuItem>
 					))}
 			</MenuItems>

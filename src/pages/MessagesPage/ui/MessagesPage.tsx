@@ -1,9 +1,10 @@
 import s from './MessagesPage.module.scss';
 
 import { classNames } from '@/shared/helpers/classNames/classNames';
+import { Page } from '@/widgets/Page';
 
 function MessagesPage() {
-	return <div className={classNames(s.MessagesPage, {}, [])}>MessagesPage component</div>;
+	return <Page className={classNames(s.MessagesPage, {}, [])}>MessagesPage component</Page>;
 }
 
 export default MessagesPage;

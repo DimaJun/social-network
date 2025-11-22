@@ -25,6 +25,7 @@ export default [
 				},
 			],
 			'prettier/prettier': 'off',
+			'@typescript-eslint/no-unsafe-assignment': 'off',
 		},
 	},
 	{
