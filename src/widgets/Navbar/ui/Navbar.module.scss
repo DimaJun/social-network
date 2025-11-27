@@ -1,4 +1,17 @@
 .Navbar {
   grid-area: nav;
   border-bottom: 2px solid var(--color-surface);
+  padding: 10px 24px;
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  font-family: var(--font-family-secondary), sans-serif;
+  font-weight: 700;
+  font-size: var(--font-size-xl);
+}
+
+.dropdown {
+  margin-left: auto;
 }
