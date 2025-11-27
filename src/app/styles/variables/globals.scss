@@ -1,0 +1,21 @@
+:root {
+  --font-family-primary: 'Inter';
+  --font-family-secondary: 'Manrope';
+
+  --font-size-s: 12px;
+  --font-size-m: 16px;
+  --font-size-l: 20px;
+  --font-size-xl: 24px;
+
+  // COLORS
+  --color-background: #272727;
+  --color-surface:    #313131;
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #a0a0a0;
+  --color-text-accent: #2aabee;
+
+  --body-background: linear-gradient(to bottom, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.15) 100%), radial-gradient(at top center, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.40) 120%) #989898;
+
+  // globals
+  --sidebar-width: 270px;
+}

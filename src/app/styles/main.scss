@@ -1,0 +1,26 @@
+@use 'reset';
+@use 'variables/globals';
+
+body {
+  height: 100vh;
+  padding: 36px;
+  background: var(--body-background);
+  background-blend-mode: multiply,multiply;
+  overflow: hidden;
+  font-family: var(--font-family-primary), serif;
+}
+
+.app {
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
+  border-radius: 12px;
+  display: grid;
+  grid-template-rows: 75px repeat(3, 1fr);
+  grid-template-columns: var(--sidebar-width) repeat(3, 1fr);
+  grid-template-areas:
+          "nav nav nav nav"
+          "sidebar content content content"
+          "sidebar content content content"
+          "sidebar content content content"
+          "sidebar content content content";
+}
