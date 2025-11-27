@@ -1,6 +1,10 @@
 @use 'reset';
 @use 'variables/globals';
 
+#root, .app {
+  height: 100%;
+}
+
 body {
   height: 100vh;
   padding: 36px;

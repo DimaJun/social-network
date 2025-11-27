@@ -1,7 +1,8 @@
 import { ReactNode } from 'react';
 
 import {
-	AppRoutes,
+	routes,
+	getRouteAuth,
 	getRouteFriends,
 	getRouteMain,
 	getRouteMessages,
@@ -17,20 +18,20 @@ export interface AppRoute {
 }
 
 export const routeConfig: Record<string, AppRoute> = {
-	[AppRoutes.MAIN]: {
+	[routes.main.route]: {
 		path: getRouteMain(),
 		element: <MainPage />,
 	},
-	[AppRoutes.FRIENDS]: {
+	[routes.friends.route]: {
 		path: getRouteFriends(),
 		element: <FriendsPage />,
 	},
-	[AppRoutes.MESSAGES]: {
+	[routes.messages.route]: {
 		path: getRouteMessages(),
 		element: <MessagesPage />,
 	},
-	[AppRoutes.AUTH]: {
-		path: getRouteFriends(),
+	[routes.auth.route]: {
+		path: getRouteAuth(),
 		element: <AuthPage />,
 	},
 };

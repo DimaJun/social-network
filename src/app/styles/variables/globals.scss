@@ -9,7 +9,8 @@
 
   // COLORS
   --color-background: #272727;
-  --color-surface:    #313131;
+  --color-background-hover: rgba(49, 49, 49, 0.8);
+  --color-surface: #313131;
   --color-text-primary: #ffffff;
   --color-text-secondary: #a0a0a0;
   --color-text-accent: #2aabee;
@@ -17,5 +18,11 @@
   --body-background: linear-gradient(to bottom, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.15) 100%), radial-gradient(at top center, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.40) 120%) #989898;
 
   // globals
-  --sidebar-width: 270px;
+  --sidebar-width: 250px;
+
+  // paddings
+  --padding8: 8px;
+  --padding16: 16px;
+  --padding24: 24px;
+  --padding32: 32px;
 }

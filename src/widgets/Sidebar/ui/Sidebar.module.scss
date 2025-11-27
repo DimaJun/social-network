@@ -1,3 +1,18 @@
 .Sidebar {
   grid-area: sidebar;
+  padding: 10px;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  padding: 6px 6px 6px 25%;
+  gap: 8px;
+  border-radius: 10px;
+  transition: 0.2s;
+
+  &:hover, &.active {
+    background-color: var(--color-background-hover);
+    color: var(--color-text-accent);
+  }
 }
