@@ -1,29 +1,36 @@
-import { FileScanIcon, NotebookIcon } from 'lucide-react';
+import { UserRoundPen, UserStar, LogOut, Settings } from 'lucide-react';
 
 import s from './Navbar.module.scss';
 
 import { classNames } from '@/shared/helpers/classNames/classNames';
 import { Dropdown } from '@/shared/ui/Dropdown';
 import { DropdownItem } from '@/shared/ui/Dropdown/Dropdown';
+import { Avatar } from '@/shared/ui/Avatar';
 
 const items: DropdownItem[] = [
 	{
-		content: 'Главная',
+		content: 'Профиль',
 		disabled: false,
-		onClick: () => alert('Main'),
-		Icon: FileScanIcon,
+		onClick: () => alert('Профиль'),
+		Icon: UserRoundPen,
 	},
 	{
-		content: 'Отсоси',
+		content: 'Админка',
 		disabled: false,
-		onClick: () => alert('Отсоси'),
-		Icon: FileScanIcon,
+		onClick: () => alert('Админка'),
+		Icon: UserStar,
 	},
 	{
-		content: 'Уходи',
-		disabled: true,
-		onClick: () => alert('Уходи'),
-		Icon: FileScanIcon,
+		content: 'Настройки',
+		disabled: false,
+		onClick: () => alert('Настройки'),
+		Icon: Settings,
+	},
+	{
+		content: 'Выйти',
+		disabled: false,
+		onClick: () => alert('Выйти'),
+		Icon: LogOut,
 	},
 ];
 
@@ -34,7 +41,7 @@ export function Navbar() {
 			<Dropdown
 				className={s.dropdown}
 				items={items}
-				trigger={<NotebookIcon />}
+				trigger={<Avatar size={32} />}
 			/>
 		</div>
 	);
