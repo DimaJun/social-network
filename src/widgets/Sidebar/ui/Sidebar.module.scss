@@ -1,6 +1,14 @@
 .Sidebar {
+  position: relative;
   grid-area: sidebar;
   padding: 10px;
+  transition: 0.3s;
+
+  &.closed {
+    .text {
+      display: none;
+    }
+  }
 }
 
 .link {
@@ -15,4 +23,17 @@
     background-color: var(--color-background-hover);
     color: var(--color-text-accent);
   }
+}
+
+.closeBtn {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  right: -32px;
+  bottom: 32px;
+  border: 2px solid var(--color-surface);
 }

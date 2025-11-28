@@ -41,7 +41,7 @@ export function Navbar() {
 			<Dropdown
 				className={s.dropdown}
 				items={items}
-				trigger={<Avatar size={32} />}
+				trigger={<Avatar size={36} />}
 			/>
 		</div>
 	);
