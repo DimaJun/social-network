@@ -16,10 +16,10 @@ export function Input(props: InputProps) {
 	const { className, label, value, onChange, placeholder } = props;
 
 	return (
-		<Field className={className}>
+		<Field className={s.wrapper}>
 			{label && <Label className={s.label}>{label}</Label>}
 			<HInput
-				className={classNames(s.input, {}, [])}
+				className={classNames(s.input, {}, [className])}
 				value={value}
 				onChange={(e) => onChange?.(e.target.value)}
 				placeholder={placeholder}
