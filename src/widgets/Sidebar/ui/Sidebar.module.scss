@@ -3,12 +3,20 @@
   grid-area: sidebar;
   padding: 10px;
   transition: 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
 
   &.closed {
     .text {
       display: none;
     }
   }
+}
+
+.links {
+  width: 100%;
 }
 
 .link {
@@ -26,16 +34,12 @@
 }
 
 .closeBtn {
-  position: absolute;
   width: 32px;
   height: 32px;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 0 10px 10px 0;
   background-color: var(--color-background);
 
-  right: -32px;
-  bottom: 80px;
   border: 2px solid var(--color-surface);
 }
