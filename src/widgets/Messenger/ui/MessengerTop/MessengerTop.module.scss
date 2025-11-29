@@ -1,0 +1,21 @@
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
+  border-bottom: 2px solid var(--color-surface);
+}
+
+.info {
+  text-align: center;
+}
+
+.username {
+  font-size: var(--font-size-l);
+}
+
+.status {
+  font-size: var(--font-size-s);
+  color: var(--color-success);
+}

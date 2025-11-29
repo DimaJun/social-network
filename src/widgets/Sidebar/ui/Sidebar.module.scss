@@ -6,7 +6,8 @@
 
   &.closed {
     .text {
-      display: none;
+      width: 0;
+      opacity: 0;
     }
   }
 }
@@ -17,12 +18,16 @@
   padding: 6px 6px 6px 25%;
   gap: 8px;
   border-radius: 10px;
-  transition: 0.2s;
+  transition: 0.3s;
 
   &:hover, &.active {
     background-color: var(--color-background-hover);
     color: var(--color-text-accent);
   }
+}
+
+.text {
+  transition: 0.2s;
 }
 
 .closeBtn {
