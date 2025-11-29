@@ -1,0 +1,14 @@
+.FilterChats {
+  grid-area: filter;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border-left: 2px solid var(--color-surface);
+}
+
+.filterBtn {
+  width: 100%;
+  padding: 10px 18px;
+}
