@@ -1,12 +1,8 @@
 .Button {
   cursor: pointer;
-  background-color: var(--color-surface);
   transition: 0.2s;
   border-radius: 10px;
-
-  &:hover {
-    color: var(--color-text-secondary);
-  }
+  background-color: transparent;
 
   &:active {
     transform: scale(0.97);
