@@ -1,9 +1,9 @@
-import s from './MessengerTop.module.scss';
+import s from './ChatUser.module.scss';
 
 import { classNames } from '@/shared/helpers/classNames/classNames';
 import { Avatar } from '@/shared/ui/Avatar';
 
-export function MessengerTop() {
+export function ChatUser() {
 	return (
 		<div className={classNames(s.header, {}, [])}>
 			<Avatar
@@ -19,6 +19,6 @@ export function MessengerTop() {
 }
 
 // Messages:
-// entities: Message (MessageBlock), Chat (ChatCard, ChatsList, ChatUser), User
+// entities: Message (MessageBlock), Chat (+ChatCard, +ChatsList, +ChatUser), User
 // features: SendMessage (Input&Button), FilterChats (Filter by: Group/Direct chats)
 // widgets: Messenger (contains all the blocks needed for the page, built by a grid system)

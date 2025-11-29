@@ -1,0 +1,36 @@
+.ChatCard {
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 12px;
+  display: flex;
+  gap: 8px;
+  user-select: none;
+
+  &:hover {
+    background-color: var(--color-background-hover);
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+.avatar {
+  flex-shrink: 0;
+}
+
+.info {
+
+}
+
+.username {
+  font-size: var(--font-size-l);
+}
+
+.lastMessage {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  color: var(--color-text-secondary);
+}

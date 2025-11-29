@@ -15,7 +15,12 @@ export function Avatar(props: AvatarProps) {
 	const { className, src, rounded, size, alt, ...otherProps } = props;
 
 	if (!src) {
-		return <CircleUserRoundIcon size={size} />;
+		return (
+			<CircleUserRoundIcon
+				className={className}
+				size={size}
+			/>
+		);
 	}
 
 	return (
