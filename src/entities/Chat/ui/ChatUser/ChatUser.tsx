@@ -17,8 +17,3 @@ export function ChatUser() {
 		</div>
 	);
 }
-
-// Messages:
-// entities: Message (MessageBlock), Chat (+ChatCard, +ChatsList, +ChatUser), User
-// features: SendMessage (Input&Button), FilterChats (Filter by: Group/Direct chats)
-// widgets: Messenger (contains all the blocks needed for the page, built by a grid system)

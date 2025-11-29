@@ -1,12 +1,12 @@
 .MessagesPage {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: 60px repeat(3, 1fr);
+  grid-template-rows: 60px repeat(3, 1fr) 70px;
   grid-template-areas:
           "user user user list"
           "chat chat chat list"
           "chat chat chat list"
           "chat chat chat list"
-          "chat chat chat list";
+          "send send send list";
   overflow: hidden;
 }

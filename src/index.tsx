@@ -16,3 +16,8 @@ createRoot(container).render(
 		<App />
 	</Router>
 );
+
+// Messages:
+// entities: Message (MessageBlock), Chat (+ChatCard, +ChatsList, +ChatUser)
+// features: SendMessage (Input&Button), FilterChats (Filter by: Group/Direct chats)
+// widgets: Messenger (contains all the blocks needed for the page, built by a grid system)

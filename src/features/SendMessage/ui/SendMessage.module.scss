@@ -1,0 +1,23 @@
+.send {
+  grid-area: send;
+  border-top: 2px solid var(--color-surface);
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.input {
+  flex-grow: 1;
+}
+
+.sendButton {
+  transition: 0.2s;
+  &:hover {
+    color: var(--color-text-secondary);
+  }
+
+  &:active {
+    transform: scale(0.97);
+  }
+}
