@@ -8,7 +8,7 @@ export function ChatCard() {
 		<Card className={s.ChatCard}>
 			<Avatar
 				className={s.avatar}
-				size={60}
+				size={50}
 				rounded
 			/>
 			<div className={s.info}>

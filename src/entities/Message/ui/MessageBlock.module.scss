@@ -1,0 +1,24 @@
+.Message {
+  max-width: 48%;
+  display: flex;
+  gap: 8px;
+  align-items: flex-end;
+
+  &.isOwn {
+    margin-left: auto;
+
+    .messageBubble {
+      border-radius: 14px 14px 0 14px;
+    }
+  }
+}
+
+.avatar {
+  flex-shrink: 0;
+}
+
+.messageBubble {
+  padding: 12px;
+  border-radius: 14px 14px 14px 0;
+  background-color: var(--color-surface);
+}

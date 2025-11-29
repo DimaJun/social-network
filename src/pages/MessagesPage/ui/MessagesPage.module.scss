@@ -1,12 +1,3 @@
 .MessagesPage {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: 60px repeat(3, 1fr) 70px;
-  grid-template-areas:
-          "user user user user filter filter"
-          "chat chat chat chat list list"
-          "chat chat chat chat list list"
-          "chat chat chat chat list list"
-          "send send send send list list";
   overflow: hidden;
 }
