@@ -11,6 +11,7 @@ export function FriendsSearch() {
 		<div className={classNames(s.FriendsSearch, {}, [])}>
 			<Input
 				className={s.input}
+				labelClass={s.label}
 				label='Найти друзей'
 				placeholder='Введите имя пользователя..'
 			/>

@@ -1,4 +1,4 @@
-import { Camera, House, Mail, Users } from 'lucide-react';
+import { KeyRound, House, Mail, Users } from 'lucide-react';
 
 export const routes = {
 	main: {
@@ -18,7 +18,7 @@ export const routes = {
 	},
 	auth: {
 		route: '/auth',
-		Icon: Camera,
+		Icon: KeyRound,
 		text: 'Авторизация',
 	},
 } as const;

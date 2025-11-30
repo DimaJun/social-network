@@ -1,0 +1,34 @@
+.authForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.header {
+  font-size: var(--font-size-xl);
+}
+
+.input {
+  margin-top: 8px;
+}
+
+.authBtn {
+  margin-top: 10px;
+  padding: 8px 14px;
+  border: 2px solid var(--color-text-primary);
+  border-radius: 16px;
+
+  &:hover {
+    color: var(--color-text-accent);
+    border-color: var(--color-text-accent);
+  }
+}
+
+.changeForm {
+  margin-top: 20px;
+
+  &:hover, &:active {
+    text-decoration: underline;
+  }
+}

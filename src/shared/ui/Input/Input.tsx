@@ -1,28 +1,24 @@
-import { Input as HInput, Field, Label } from '@headlessui/react';
+import { Input as HInput, Field, Label, InputProps as HeadlessInputProps } from '@headlessui/react';
 
 import s from './Input.module.scss';
 
 import { classNames } from '@/shared/helpers/classNames/classNames';
 
-interface InputProps {
+interface InputProps extends HeadlessInputProps {
 	className?: string;
-	placeholder?: string;
+	labelClass?: string;
 	label?: string;
-	value?: string;
-	onChange?: (value: string) => void;
 }
 
 export function Input(props: InputProps) {
-	const { className, label, value, onChange, placeholder } = props;
+	const { className, label, labelClass, ...restProps } = props;
 
 	return (
 		<Field className={s.wrapper}>
-			{label && <Label className={s.label}>{label}</Label>}
+			{label && <Label className={classNames(s.label, {}, [labelClass])}>{label}</Label>}
 			<HInput
 				className={classNames(s.input, {}, [className])}
-				value={value}
-				onChange={(e) => onChange?.(e.target.value)}
-				placeholder={placeholder}
+				{...restProps}
 			/>
 		</Field>
 	);
