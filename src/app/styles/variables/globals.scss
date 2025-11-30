@@ -9,11 +9,17 @@
 
   // COLORS
   --color-background: #272727;
+  --color-background-inverted: #f9f9f9;
   --color-background-hover: rgba(49, 49, 49, 0.8);
+  --color-background-hover-inverted: rgba(249, 249, 249, 0.8);
   --color-surface: #313131;
+  --color-surface-inverted: #bbbbbb;
   --color-text-primary: #ffffff;
+  --color-text-primary-inverted: #000000;
   --color-text-secondary: #a0a0a0;
+  --color-text-secondary-inverted: #6d6d6d;
   --color-text-accent: #2aabee;
+  --color-text-accent-inverted: #f56121;
 
   --color-success: #81C784;
   --color-error: #E57373;
