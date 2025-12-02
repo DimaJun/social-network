@@ -8,6 +8,7 @@ type TypedInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange' | 
 
 interface InputProps extends TypedInputProps {
 	className?: string;
+	labelClass?: string;
 	value?: string;
 	onChange?: (value: string) => void;
 	label?: string;
@@ -16,6 +17,7 @@ interface InputProps extends TypedInputProps {
 export function Input(props: InputProps) {
 	const {
 		className,
+		labelClass,
 		value,
 		onChange,
 		label,
@@ -41,7 +43,7 @@ export function Input(props: InputProps) {
 
 	return (
 		<label className={s.label}>
-			<span>{label}</span>
+			<span className={labelClass}>{label}</span>
 			<input
 				className={classNames(s.input, {}, [className])}
 				type={type}

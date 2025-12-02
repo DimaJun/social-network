@@ -1,6 +1,6 @@
-.FriendsPage {
-	padding: 10px;
+.list {
+	overflow-y: scroll;
 	display: flex;
 	flex-direction: column;
-	gap: 16px;
+	gap: 10px;
 }
