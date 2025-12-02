@@ -1,0 +1,36 @@
+.button {
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	padding: 6px 15px;
+	border-radius: 16px;
+	transition: var(--transition);
+
+	&:hover {
+		opacity: var(--opacity);
+	}
+
+	&:active {
+		transform: scale(0.99);
+	}
+
+	&:disabled {
+		pointer-events: none;
+		user-select: none;
+		color: var(--color-text-secondary);
+		border-color: var(--color-text-secondary);
+	}
+}
+
+.clear {
+	padding: 0;
+	border: none;
+	background: none;
+	outline: none;
+}
+
+.outline {
+	border: 1px solid var(--color-text-primary);
+	background: none;
+}
