@@ -1,0 +1,9 @@
+@use 'reset';
+@use 'variables/global';
+
+body {
+	background: var(--body-background);
+	font-family: var(--font-family-primary), sans-serif;
+	font-size: var(--font-size-primary);
+	color: var(--color-text-primary);
+}
