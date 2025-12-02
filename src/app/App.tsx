@@ -1,3 +1,5 @@
+import { AppLayout } from '@/shared/layouts/AppLayout';
+
 export function App() {
-	return <div>Font size</div>;
+	return <AppLayout />;
 }

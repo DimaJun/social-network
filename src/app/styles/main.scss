@@ -7,3 +7,33 @@ body {
 	font-size: var(--font-size-primary);
 	color: var(--color-text-primary);
 }
+
+#root {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	padding: 40px;
+}
+
+#root,
+.app {
+	height: 100%;
+}
+
+.app {
+	display: grid;
+	grid-template-columns: var(--sidebar-width) repeat(4, 1fr);
+	grid-template-rows: var(--header-height) repeat(4, 1fr);
+	grid-template-areas:
+		'header header header header header'
+		'sidebar content content content content'
+		'sidebar content content content content'
+		'sidebar content content content content'
+		'sidebar content content content content';
+
+	flex-grow: 1;
+	max-width: 1300px;
+	background-color: var(--color-background);
+	border-radius: 16px;
+}
