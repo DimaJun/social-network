@@ -24,7 +24,12 @@ export function Avatar(props: AvatarProps) {
 	};
 
 	if (!src) {
-		return <CircleUserRound size={size} />;
+		return (
+			<CircleUserRound
+				className={className}
+				size={size}
+			/>
+		);
 	}
 
 	return (

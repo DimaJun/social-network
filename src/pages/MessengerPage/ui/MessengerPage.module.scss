@@ -1,6 +1,6 @@
 .MessengerPage {
 	display: grid;
-	grid-template-columns: 1fr 260px;
+	grid-template-columns: repeat(2, 1fr) 260px;
 	grid-template-rows: 80px 1fr 80px;
 	grid-template-areas:
 		'header header filters'

@@ -1,0 +1,37 @@
+.card {
+	cursor: pointer;
+	user-select: none;
+	border-radius: 12px;
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	transition: var(--transition);
+
+	&:hover {
+		background-color: var(--color-surface-hover);
+	}
+
+	&:active {
+		transform: scale(0.98);
+	}
+}
+
+.avatar {
+	flex-shrink: 0;
+}
+
+.info {
+	display: -webkit-box;
+	-webkit-line-clamp: 3; /* количество строк */
+	-webkit-box-orient: vertical;
+
+	overflow: hidden;
+}
+
+.username {
+	font-size: var(--font-size-m);
+}
+
+.lastMessage {
+	color: var(--color-text-secondary);
+}
