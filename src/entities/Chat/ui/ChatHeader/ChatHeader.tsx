@@ -6,7 +6,7 @@ export function ChatHeader() {
 	return (
 		<div className={s.header}>
 			<Avatar
-				size={60}
+				size={50}
 				rounded
 			/>
 			<div className={s.info}>

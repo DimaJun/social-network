@@ -1,0 +1,22 @@
+.wrapper {
+	display: flex;
+	align-items: flex-end;
+	gap: 8px;
+
+	&.isOwn {
+		justify-content: flex-end;
+
+		.message {
+			border-radius: 16px 16px 0 16px;
+		}
+	}
+}
+
+.message {
+	max-width: 48%;
+	padding: 14px;
+
+	border-radius: 16px 16px 16px 0;
+
+	background-color: var(--color-surface);
+}

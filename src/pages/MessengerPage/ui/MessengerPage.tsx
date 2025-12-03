@@ -5,6 +5,7 @@ import { Page } from '@/widgets/Page';
 import { ChatHeader, ChatsList } from '@/entities/Chat';
 import { ChatsFilters } from '@/features/ChatsFilters';
 import { SendMessage } from '@/features/SendMessage';
+import { MessagesList } from '@/entities/Message';
 
 export function MessengerPage() {
 	return (
@@ -12,6 +13,7 @@ export function MessengerPage() {
 			<ChatHeader />
 			<ChatsFilters />
 			<ChatsList />
+			<MessagesList />
 			<SendMessage />
 		</Page>
 	);

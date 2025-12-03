@@ -1,0 +1,11 @@
+.list {
+	grid-area: chat;
+
+	padding: 10px;
+
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+
+	overflow-y: scroll;
+}
