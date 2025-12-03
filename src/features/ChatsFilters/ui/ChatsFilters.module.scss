@@ -1,0 +1,15 @@
+.ChatsFilters {
+	grid-area: filters;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	gap: 8px;
+}
+
+.action {
+	padding: 10px 18px;
+	border-radius: 10px;
+	font-size: var(--font-size-m);
+}

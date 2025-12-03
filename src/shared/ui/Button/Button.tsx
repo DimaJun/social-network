@@ -4,11 +4,12 @@ import s from './Button.module.scss';
 
 import { classNames } from '@/shared/helpers/classNames/classNames';
 
-type ButtonVariant = 'clear' | 'outline';
+type ButtonVariant = 'clear' | 'outline' | 'background';
 
 const mapVariantToClass: Record<ButtonVariant, string> = {
 	clear: s.clear,
 	outline: s.outline,
+	background: s.background,
 };
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
