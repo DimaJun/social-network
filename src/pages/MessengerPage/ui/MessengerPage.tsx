@@ -4,6 +4,7 @@ import { classNames } from '@/shared/helpers/classNames/classNames';
 import { Page } from '@/widgets/Page';
 import { ChatHeader, ChatsList } from '@/entities/Chat';
 import { ChatsFilters } from '@/features/ChatsFilters';
+import { SendMessage } from '@/features/SendMessage';
 
 export function MessengerPage() {
 	return (
@@ -11,6 +12,7 @@ export function MessengerPage() {
 			<ChatHeader />
 			<ChatsFilters />
 			<ChatsList />
+			<SendMessage />
 		</Page>
 	);
 }
