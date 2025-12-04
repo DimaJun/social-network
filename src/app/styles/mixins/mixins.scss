@@ -1,0 +1,5 @@
+@mixin glassmorphism($blur: 10px, $opacity: 0.1) {
+	background-color: rgba(109, 109, 109, $opacity);
+	backdrop-filter: blur($blur);
+	-webkit-backdrop-filter: blur($blur);
+}

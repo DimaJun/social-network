@@ -15,3 +15,7 @@ createRoot(container).render(
 		<App />
 	</Router>
 );
+
+// AvatarDropdown (inside Header)
+// ProfilePage
+// AuthPage

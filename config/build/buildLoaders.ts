@@ -34,7 +34,14 @@ export function buildLoaders({ isDev }: BuildOptions) {
 					},
 				},
 			},
-			'sass-loader',
+			{
+				loader: 'sass-loader',
+				options: {
+					additionalData: `
+						@use "@/app/styles/mixins/mixins" as *;
+					`,
+				},
+			},
 		],
 	};
 

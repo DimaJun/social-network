@@ -1,0 +1,59 @@
+.menu {
+	position: relative;
+	width: fit-content;
+}
+
+.dropdown {
+	position: absolute;
+	width: max-content;
+	border-radius: 12px;
+	padding: 4px;
+
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+
+	@include glassmorphism();
+
+	&.topStart {
+		bottom: 100%;
+		right: 100%;
+	}
+
+	&.topEnd {
+		bottom: 100%;
+		left: 100%;
+	}
+
+	&.bottomStart {
+		right: 100%;
+	}
+
+	&.bottomEnd {
+		left: 100%;
+	}
+
+	.item {
+		width: 100%;
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		gap: 4px;
+		border-radius: 10px;
+
+		padding: 8px 16px;
+
+		&:hover,
+		&.focus {
+			opacity: 1;
+			color: var(--color-text-accent);
+			background-color: rgba(255, 255, 255, 0.1);
+		}
+	}
+}
+
+.trigger {
+	&:focus {
+		outline: 1px solid var(--color-text-primary);
+	}
+}

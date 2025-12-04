@@ -1,0 +1,7 @@
+.link {
+	transition: var(--transition);
+	&.disabled,
+	&:hover {
+		opacity: var(--opacity);
+	}
+}
