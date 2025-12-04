@@ -23,6 +23,10 @@
 		color: var(--color-text-secondary);
 		border-color: var(--color-text-secondary);
 	}
+
+	&:focus {
+		outline: 1px solid currentColor;
+	}
 }
 
 .clear {

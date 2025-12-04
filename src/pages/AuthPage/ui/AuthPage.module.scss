@@ -1,3 +1,7 @@
 .AuthPage {
-  /* styles for AuthPage */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	flex-direction: column;
 }

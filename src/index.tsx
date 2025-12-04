@@ -16,6 +16,4 @@ createRoot(container).render(
 	</Router>
 );
 
-// AvatarDropdown (inside Header)
 // ProfilePage
-// AuthPage
