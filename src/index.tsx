@@ -15,5 +15,3 @@ createRoot(container).render(
 		<App />
 	</Router>
 );
-
-// ProfilePage

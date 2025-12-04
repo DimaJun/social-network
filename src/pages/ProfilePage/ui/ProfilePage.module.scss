@@ -1,0 +1,9 @@
+.ProfilePage {
+	display: grid;
+	grid-template-columns: 300px repeat(2, 1fr);
+	grid-template-rows: 300px 1fr;
+
+	grid-template-areas:
+		'header header header'
+		'actions feed feed';
+}

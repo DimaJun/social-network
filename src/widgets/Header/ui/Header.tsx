@@ -1,16 +1,16 @@
-import { CircleUserRound, House, UserStar, Settings, LogOut } from 'lucide-react';
+import { CircleUserRound, UserRoundPen, UserStar, Settings, LogOut } from 'lucide-react';
 
 import s from './Header.module.scss';
 
 import { classNames } from '@/shared/helpers/classNames/classNames';
 import { Dropdown } from '@/shared/ui/Dropdown';
-import { getMainRoute } from '@/shared/configs/router/router';
+import { getMainRoute, getProfileRoute } from '@/shared/configs/router/router';
 
 const items = [
 	{
-		text: 'Главная',
-		href: getMainRoute(),
-		Icon: House,
+		text: 'Профиль',
+		href: getProfileRoute(),
+		Icon: UserRoundPen,
 	},
 	{
 		text: 'Админка',
