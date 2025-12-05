@@ -1,0 +1,27 @@
+.toast {
+	max-width: 350px;
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	background-color: var(--color-surface);
+	padding: 12px 16px;
+	border-radius: 14px;
+	//font-size: var(--font-size-m);
+}
+
+.icon {
+	flex-shrink: 0;
+	&.success {
+		color: var(--color-text-success);
+	}
+
+	&.error {
+		color: var(--color-text-error);
+	}
+
+	&.notification,
+	&.messenger,
+	&.friend {
+		color: var(--color-text-accent);
+	}
+}
