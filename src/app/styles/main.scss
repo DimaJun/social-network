@@ -1,5 +1,7 @@
 @use 'reset';
 @use 'variables/global';
+@use 'themes/dark';
+@use 'themes/light';
 
 body {
 	background: var(--body-background);

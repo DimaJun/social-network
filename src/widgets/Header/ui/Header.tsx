@@ -4,7 +4,7 @@ import s from './Header.module.scss';
 
 import { classNames } from '@/shared/helpers/classNames/classNames';
 import { Dropdown } from '@/shared/ui/Dropdown';
-import { getMainRoute, getProfileRoute } from '@/shared/configs/router/router';
+import { getMainRoute, getProfileRoute, getSettingsRoute } from '@/shared/configs/router/router';
 
 const items = [
 	{
@@ -19,7 +19,7 @@ const items = [
 	},
 	{
 		text: 'Настройки',
-		href: getMainRoute(),
+		href: getSettingsRoute(),
 		Icon: Settings,
 	},
 	{
