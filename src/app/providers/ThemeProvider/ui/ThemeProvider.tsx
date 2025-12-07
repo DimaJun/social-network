@@ -1,5 +1,7 @@
 import { createContext, ReactNode, useEffect, useState } from 'react';
 
+import { LOCAL_STORAGE_APP_THEME } from '@/shared/consts/localstorage';
+
 type Theme = 'light' | 'dark';
 
 interface ThemeContextType {
@@ -16,7 +18,7 @@ export const ThemeContext = createContext<ThemeContextType | undefined>(undefine
 
 export function ThemeProvider({ children }: ThemeProviderProps) {
 	const [theme, setTheme] = useState<Theme>(() => {
-		const savedTheme = localStorage.getItem('theme') as Theme | null;
+		const savedTheme = localStorage.getItem(LOCAL_STORAGE_APP_THEME) as Theme | null;
 		if (savedTheme && (savedTheme === 'light' || savedTheme === 'dark')) {
 			return savedTheme;
 		}
@@ -26,7 +28,7 @@ export function ThemeProvider({ children }: ThemeProviderProps) {
 
 	useEffect(() => {
 		document.documentElement.setAttribute('data-theme', theme);
-		localStorage.setItem('theme', theme);
+		localStorage.setItem(LOCAL_STORAGE_APP_THEME, theme);
 	}, [theme]);
 
 	const toggleTheme = () => {

@@ -7,6 +7,7 @@ import { ISidebarItem, SidebarItem } from './SidebarItem/SidebarItem';
 import { classNames, Mods } from '@/shared/helpers/classNames/classNames';
 import { getFriendsRoute, getMainRoute, getMessengerRoute } from '@/shared/configs/router/router';
 import { Button } from '@/shared/ui/Button';
+import { LOCAL_STORAGE_SIDEBAR_COLLAPSE } from '@/shared/consts/localstorage';
 
 const sidebarItems: ISidebarItem[] = [
 	{
@@ -27,7 +28,10 @@ const sidebarItems: ISidebarItem[] = [
 ];
 
 export function Sidebar() {
-	const [closed, setClosed] = useState(false);
+	const [closed, setClosed] = useState<boolean>(() => {
+		const savedValue = localStorage.getItem(LOCAL_STORAGE_SIDEBAR_COLLAPSE);
+		return savedValue === 'true';
+	});
 
 	const mods: Mods = {
 		[s.closed]: closed,
@@ -35,6 +39,7 @@ export function Sidebar() {
 
 	useEffect(() => {
 		document.documentElement.style.setProperty('--sidebar-width', closed ? '80px' : '260px');
+		localStorage.setItem(LOCAL_STORAGE_SIDEBAR_COLLAPSE, JSON.stringify(closed));
 	}, [closed]);
 
 	return (
