@@ -1,0 +1,39 @@
+.switch {
+	cursor: pointer;
+
+	width: 60px;
+	height: 28px;
+	border-radius: 40px;
+	display: flex;
+	align-items: center;
+
+	border: 2px solid var(--color-text-primary);
+	background-color: var(--color-surface);
+
+	position: relative;
+}
+
+.inner {
+	position: absolute;
+	left: 2px;
+
+	display: block;
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	background-color: var(--color-text-primary);
+
+	transition: var(--transition);
+
+	&.checked {
+		left: 34px;
+	}
+
+	& > .icon {
+		padding: 3px;
+	}
+}
+
+.icon {
+	color: var(--color-surface);
+}
