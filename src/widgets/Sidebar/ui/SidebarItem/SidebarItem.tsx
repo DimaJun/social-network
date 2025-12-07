@@ -14,18 +14,21 @@ export interface ISidebarItem {
 interface SidebarItemProps {
 	className?: string;
 	item: ISidebarItem;
+	collapsed?: boolean;
 }
 
-export function SidebarItem({ className, item }: SidebarItemProps) {
+export function SidebarItem({ className, item, collapsed }: SidebarItemProps) {
 	const { path, text, Icon } = item;
 
 	return (
 		<NavLink
-			className={({ isActive }) => classNames(s.link, { [s.active]: isActive }, [className])}
+			className={({ isActive }) =>
+				classNames(s.link, { [s.active]: isActive, [s.collapsed]: collapsed }, [className])
+			}
 			to={path}
 		>
 			<Icon />
-			{text}
+			<span className={s.text}>{text}</span>
 		</NavLink>
 	);
 }

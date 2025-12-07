@@ -1,10 +1,12 @@
-import { House, Users, Mail } from 'lucide-react';
+import { House, Users, Mail, ChevronLeftSquare, ChevronRightSquare } from 'lucide-react';
+import { useEffect, useState } from 'react';
 
 import s from './Sidebar.module.scss';
 import { ISidebarItem, SidebarItem } from './SidebarItem/SidebarItem';
 
-import { classNames } from '@/shared/helpers/classNames/classNames';
+import { classNames, Mods } from '@/shared/helpers/classNames/classNames';
 import { getFriendsRoute, getMainRoute, getMessengerRoute } from '@/shared/configs/router/router';
+import { Button } from '@/shared/ui/Button';
 
 const sidebarItems: ISidebarItem[] = [
 	{
@@ -25,16 +27,33 @@ const sidebarItems: ISidebarItem[] = [
 ];
 
 export function Sidebar() {
+	const [closed, setClosed] = useState(false);
+
+	const mods: Mods = {
+		[s.closed]: closed,
+	};
+
+	useEffect(() => {
+		document.documentElement.style.setProperty('--sidebar-width', closed ? '80px' : '260px');
+	}, [closed]);
+
 	return (
-		<aside className={classNames(s.Sidebar, {}, [])}>
+		<aside className={classNames(s.Sidebar, mods, [])}>
 			<div className={s.links}>
 				{sidebarItems.map((item) => (
 					<SidebarItem
 						key={item.text}
 						item={item}
+						collapsed={closed}
 					/>
 				))}
 			</div>
+			<Button
+				className={s.closeBtn}
+				onClick={() => setClosed((prev) => !prev)}
+			>
+				{closed ? <ChevronRightSquare size={36} /> : <ChevronLeftSquare size={36} />}
+			</Button>
 		</aside>
 	);
 }

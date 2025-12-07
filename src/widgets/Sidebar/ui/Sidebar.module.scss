@@ -2,10 +2,21 @@
 	grid-area: sidebar;
 
 	padding: 10px;
+
+	display: flex;
+	flex-direction: column;
+
+	&.closed {
+	}
 }
 
 .links {
 	display: flex;
 	flex-direction: column;
 	gap: 4px;
+}
+
+.closeBtn {
+	align-self: center;
+	margin-top: auto;
 }

@@ -16,4 +16,12 @@
 		background-color: var(--color-surface);
 		color: var(--color-text-accent);
 	}
+
+	&.collapsed {
+		padding: 6px;
+		justify-content: center;
+		.text {
+			display: none;
+		}
+	}
 }

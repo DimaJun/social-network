@@ -38,4 +38,6 @@ body {
 	max-width: 80%;
 	background-color: var(--color-background);
 	border-radius: 16px;
+
+	transition: grid-template-columns var(--transition);
 }
