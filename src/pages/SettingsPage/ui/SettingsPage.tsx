@@ -14,6 +14,7 @@ export function SettingsPage() {
 			<Switch
 				checked={theme === 'dark'}
 				onCheck={toggleTheme}
+				label='Переключить тему'
 				Icon={theme === 'dark' ? Moon : Sun}
 			/>
 		</div>
