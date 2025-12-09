@@ -4,7 +4,7 @@ import { classNames } from '@/shared/helpers/classNames/classNames';
 import { ThemeSwitcher } from '@/widgets/ThemeSwitcher';
 import { LangSwitcher } from '@/widgets/LangSwitcher';
 
-export function SettingsPage() {
+function SettingsPage() {
 	return (
 		<div className={classNames(s.SettingsPage, {}, [])}>
 			<h1 className={s.heading}>Настройки</h1>
@@ -13,3 +13,5 @@ export function SettingsPage() {
 		</div>
 	);
 }
+
+export default SettingsPage;

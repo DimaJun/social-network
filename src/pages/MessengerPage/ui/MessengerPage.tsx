@@ -7,7 +7,7 @@ import { ChatsFilters } from '@/features/ChatsFilters';
 import { SendMessage } from '@/features/SendMessage';
 import { MessagesList } from '@/entities/Message';
 
-export function MessengerPage() {
+function MessengerPage() {
 	return (
 		<Page className={classNames(s.MessengerPage, {}, [])}>
 			<ChatHeader />
@@ -18,3 +18,5 @@ export function MessengerPage() {
 		</Page>
 	);
 }
+
+export default MessengerPage;

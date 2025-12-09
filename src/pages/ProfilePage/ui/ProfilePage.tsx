@@ -4,7 +4,7 @@ import { classNames } from '@/shared/helpers/classNames/classNames';
 import { Page } from '@/widgets/Page';
 import { ProfileHeader, ProfileInfo, ProfilePosts } from '@/entities/Profile';
 
-export function ProfilePage() {
+function ProfilePage() {
 	return (
 		<Page className={classNames(s.ProfilePage, {}, [])}>
 			<ProfileHeader />
@@ -13,3 +13,5 @@ export function ProfilePage() {
 		</Page>
 	);
 }
+
+export default ProfilePage;

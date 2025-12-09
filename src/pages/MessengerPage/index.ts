@@ -1,1 +1,1 @@
-export { MessengerPage } from './ui/MessengerPage';
+export { MessengerPageAsync as MessengerPage } from './ui/MessengerPage.async';

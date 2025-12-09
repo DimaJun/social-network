@@ -1,1 +1,1 @@
-export { FriendsPage } from './ui/FriendsPage';
+export { FriendsPageAsync as FriendsPage } from './ui/FriendsPage.async';

@@ -5,7 +5,7 @@ import { Page } from '@/widgets/Page';
 import { FriendsSearch } from '@/features/FriendsSearch';
 import { FriendsList } from '@/entities/Friend';
 
-export function FriendsPage() {
+function FriendsPage() {
 	return (
 		<Page className={classNames(s.FriendsPage, {}, [])}>
 			<FriendsSearch />
@@ -13,3 +13,5 @@ export function FriendsPage() {
 		</Page>
 	);
 }
+
+export default FriendsPage;
