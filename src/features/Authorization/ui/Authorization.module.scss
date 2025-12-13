@@ -29,3 +29,10 @@
 		text-decoration: underline;
 	}
 }
+
+.error {
+	align-self: start;
+	font-size: var(--font-size-s);
+	padding-left: 8px;
+	color: var(--color-text-error);
+}
