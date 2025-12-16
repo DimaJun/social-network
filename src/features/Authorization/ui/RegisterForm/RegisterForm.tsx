@@ -8,6 +8,7 @@ import { useRegisterMutation } from '../../api/auth';
 import { Input } from '@/shared/ui/Input';
 import { Button } from '@/shared/ui/Button';
 import { showToast } from '@/shared/lib/toaster/toast';
+import { ApiError } from '@/shared/configs/api';
 
 interface RegisterFormProps {
 	toggleLogin: () => void;
@@ -33,14 +34,16 @@ export function RegisterForm({ toggleLogin }: RegisterFormProps) {
 	const [register, { isLoading }] = useRegisterMutation();
 
 	const onSubmit = async (data: RegistrationFormData) => {
-		try {
-			await register(data).unwrap();
-			showToast.success('Успешная регистрация!');
-			toggleLogin();
-			reset();
-		} catch (e) {
-			console.error(e);
-		}
+		await register(data)
+			.unwrap()
+			.then((data) => {
+				showToast.success('Успешная регистрация!');
+				toggleLogin();
+				reset();
+			})
+			.catch((e: ApiError) => {
+				showToast.error(e.data.message);
+			});
 	};
 
 	return (

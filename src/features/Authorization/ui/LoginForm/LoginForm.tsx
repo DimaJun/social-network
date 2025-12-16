@@ -8,6 +8,7 @@ import { Input } from '@/shared/ui/Input';
 import { Button } from '@/shared/ui/Button';
 import { useLoginMutation } from '@/features/Authorization/api/auth';
 import { showToast } from '@/shared/lib/toaster/toast';
+import { ApiError } from '@/shared/configs/api';
 
 export function LoginForm() {
 	const {
@@ -19,7 +20,7 @@ export function LoginForm() {
 		resolver: zodResolver(loginSchema),
 		mode: 'onChange',
 		defaultValues: {
-			emailOrUsername: '',
+			email: '',
 			password: '',
 		},
 	});
@@ -27,14 +28,15 @@ export function LoginForm() {
 	const [login, { isLoading }] = useLoginMutation();
 
 	const onSubmit = async (data: LoginFormData) => {
-		try {
-			const res = await login(data).unwrap();
-			showToast.success('Успешная авторизация!');
-			reset();
-			console.log(res);
-		} catch (e) {
-			console.error(e);
-		}
+		await login(data)
+			.unwrap()
+			.then((data) => {
+				showToast.success('Успешная авторизация!');
+				reset();
+			})
+			.catch((e: ApiError) => {
+				showToast.error(e.data.message);
+			});
 	};
 
 	return (
@@ -44,19 +46,19 @@ export function LoginForm() {
 		>
 			<h1 className={s.header}>Логин</h1>
 			<Controller
-				name='emailOrUsername'
+				name='email'
 				control={control}
 				render={({ field }) => (
 					<Input
 						className={s.input}
-						label='Никнейм или почта'
-						placeholder='Введите никнейм или почту'
+						label='Почта'
+						placeholder='Введите почту'
 						value={field.value}
 						onChange={field.onChange}
 					/>
 				)}
 			/>
-			{errors.emailOrUsername && <p className={s.error}>{errors.emailOrUsername.message}</p>}
+			{errors.email && <p className={s.error}>{errors.email.message}</p>}
 			<Controller
 				name='password'
 				control={control}

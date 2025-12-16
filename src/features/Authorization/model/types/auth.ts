@@ -16,6 +16,6 @@ export interface RegisterQueryArgs {
 }
 
 export interface LoginQueryArgs {
-	emailOrUsername: string;
+	email: string;
 	password: string;
 }
