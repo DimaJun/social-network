@@ -1,9 +1,11 @@
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter as Router } from 'react-router';
+import { Provider } from 'react-redux';
 
 import { App } from '@/app/App';
 import '@/app/styles/main.scss';
 import { ThemeProvider } from '@/app/providers/ThemeProvider';
+import { store } from '@/app/store';
 
 const container = document.getElementById('root');
 
@@ -12,11 +14,13 @@ if (!container) {
 }
 
 createRoot(container).render(
-	<ThemeProvider>
-		<Router>
-			<App />
-		</Router>
-	</ThemeProvider>
+	<Provider store={store}>
+		<ThemeProvider>
+			<Router>
+				<App />
+			</Router>
+		</ThemeProvider>
+	</Provider>
 );
 
 // SettingsPage

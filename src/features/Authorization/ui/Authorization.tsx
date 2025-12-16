@@ -29,7 +29,7 @@ export function Authorization() {
 
 	return (
 		<>
-			<RegisterForm />
+			<RegisterForm toggleLogin={toggleIsLogin} />
 			<Button
 				className={s.toggleForm}
 				onClick={toggleIsLogin}

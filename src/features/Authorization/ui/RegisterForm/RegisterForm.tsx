@@ -3,24 +3,45 @@ import { zodResolver } from '@hookform/resolvers/zod';
 
 import s from '../Authorization.module.scss';
 import { registerSchema, RegistrationFormData } from '../../model/schemas/registration';
+import { useRegisterMutation } from '../../api/auth';
 
 import { Input } from '@/shared/ui/Input';
 import { Button } from '@/shared/ui/Button';
+import { showToast } from '@/shared/lib/toaster/toast';
 
-export function RegisterForm() {
+interface RegisterFormProps {
+	toggleLogin: () => void;
+}
+
+export function RegisterForm({ toggleLogin }: RegisterFormProps) {
 	const {
 		control,
 		handleSubmit,
 		formState: { errors },
 		reset,
-	} = useForm({
+	} = useForm<RegistrationFormData>({
 		resolver: zodResolver(registerSchema),
 		mode: 'onChange',
+		defaultValues: {
+			email: '',
+			username: '',
+			password: '',
+			confirmPassword: '',
+		},
 	});
 
-	const onSubmit = (data: RegistrationFormData) => {
-		console.log(data);
-		reset();
+	const [register, { isLoading }] = useRegisterMutation();
+
+	const onSubmit = async (data: RegistrationFormData) => {
+		try {
+			const res = await register(data).unwrap();
+			showToast.success('Успешная регистрация!');
+			toggleLogin();
+			reset();
+			console.log(res);
+		} catch (e) {
+			console.error(e);
+		}
 	};
 
 	return (
@@ -38,7 +59,7 @@ export function RegisterForm() {
 						label='Никнейм'
 						placeholder='Введите никнейм'
 						value={field.value}
-						onChange={(value) => field.onChange(value)}
+						onChange={field.onChange}
 					/>
 				)}
 			/>
@@ -53,7 +74,7 @@ export function RegisterForm() {
 						placeholder='Введите почту'
 						type='email'
 						value={field.value}
-						onChange={(value) => field.onChange(value)}
+						onChange={field.onChange}
 					/>
 				)}
 			/>
@@ -68,7 +89,7 @@ export function RegisterForm() {
 						placeholder='Введите пароль'
 						type='password'
 						value={field.value}
-						onChange={(value) => field.onChange(value)}
+						onChange={field.onChange}
 					/>
 				)}
 			/>
@@ -83,7 +104,7 @@ export function RegisterForm() {
 						placeholder='Подтвердите пароль'
 						type='password'
 						value={field.value}
-						onChange={(value) => field.onChange(value)}
+						onChange={field.onChange}
 					/>
 				)}
 			/>
@@ -91,6 +112,7 @@ export function RegisterForm() {
 			<Button
 				className={s.submit}
 				variant='background'
+				disabled={isLoading}
 				type='submit'
 			>
 				Регистрация
