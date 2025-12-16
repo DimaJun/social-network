@@ -6,6 +6,8 @@ import { LoginFormData, loginSchema } from '../../model/schemas/login';
 
 import { Input } from '@/shared/ui/Input';
 import { Button } from '@/shared/ui/Button';
+import { useLoginMutation } from '@/features/Authorization/api/auth';
+import { showToast } from '@/shared/lib/toaster/toast';
 
 export function LoginForm() {
 	const {
@@ -13,14 +15,26 @@ export function LoginForm() {
 		handleSubmit,
 		reset,
 		formState: { errors },
-	} = useForm({
+	} = useForm<LoginFormData>({
 		resolver: zodResolver(loginSchema),
 		mode: 'onChange',
+		defaultValues: {
+			emailOrUsername: '',
+			password: '',
+		},
 	});
 
-	const onSubmit = (data: LoginFormData) => {
-		console.log(data);
-		reset();
+	const [login, { isLoading }] = useLoginMutation();
+
+	const onSubmit = async (data: LoginFormData) => {
+		try {
+			const res = await login(data).unwrap();
+			showToast.success('Успешная авторизация!');
+			reset();
+			console.log(res);
+		} catch (e) {
+			console.error(e);
+		}
 	};
 
 	return (
@@ -38,7 +52,7 @@ export function LoginForm() {
 						label='Никнейм или почта'
 						placeholder='Введите никнейм или почту'
 						value={field.value}
-						onChange={(value) => field.onChange(value)}
+						onChange={field.onChange}
 					/>
 				)}
 			/>
@@ -53,13 +67,14 @@ export function LoginForm() {
 						placeholder='Введите пароль'
 						type='password'
 						value={field.value}
-						onChange={(value) => field.onChange(value)}
+						onChange={field.onChange}
 					/>
 				)}
 			/>
 			{errors.password && <p className={s.error}>{errors.password.message}</p>}
 			<Button
 				className={s.submit}
+				disabled={isLoading}
 				type='submit'
 				variant='background'
 			>

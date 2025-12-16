@@ -34,11 +34,10 @@ export function RegisterForm({ toggleLogin }: RegisterFormProps) {
 
 	const onSubmit = async (data: RegistrationFormData) => {
 		try {
-			const res = await register(data).unwrap();
+			await register(data).unwrap();
 			showToast.success('Успешная регистрация!');
 			toggleLogin();
 			reset();
-			console.log(res);
 		} catch (e) {
 			console.error(e);
 		}

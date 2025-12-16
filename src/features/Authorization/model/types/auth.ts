@@ -5,8 +5,17 @@ export interface AuthStateSchema {
 	user: User | null;
 }
 
+export interface RegisterResponse extends User {
+	createdAt: string;
+}
+
 export interface RegisterQueryArgs {
 	username: string;
 	email: string;
+	password: string;
+}
+
+export interface LoginQueryArgs {
+	emailOrUsername: string;
 	password: string;
 }

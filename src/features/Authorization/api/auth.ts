@@ -1,12 +1,24 @@
-import { AuthStateSchema, RegisterQueryArgs } from '../model/types/auth';
+import {
+	AuthStateSchema,
+	LoginQueryArgs,
+	RegisterQueryArgs,
+	RegisterResponse,
+} from '../model/types/auth';
 
 import { baseApi } from '@/shared/configs/api';
 
 export const authApi = baseApi.injectEndpoints({
 	endpoints: (build) => ({
-		register: build.mutation<AuthStateSchema, RegisterQueryArgs>({
+		register: build.mutation<RegisterResponse, RegisterQueryArgs>({
 			query: (data) => ({
 				url: '/auth/register',
+				method: 'POST',
+				body: data,
+			}),
+		}),
+		login: build.mutation<AuthStateSchema, LoginQueryArgs>({
+			query: (data) => ({
+				url: '/auth/login',
 				method: 'POST',
 				body: data,
 			}),
@@ -15,3 +27,4 @@ export const authApi = baseApi.injectEndpoints({
 });
 
 export const { useRegisterMutation } = authApi;
+export const { useLoginMutation } = authApi;
