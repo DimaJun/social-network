@@ -1,4 +1,7 @@
 .content {
 	grid-area: content;
-	border-left: 2px solid var(--color-surface);
+
+	&.loggined {
+		border-left: 2px solid var(--color-surface);
+	}
 }

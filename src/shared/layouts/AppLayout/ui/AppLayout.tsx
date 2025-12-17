@@ -23,7 +23,7 @@ export function AppLayout() {
 			/>
 			<Header />
 			<Sidebar />
-			<main className={s.content}>
+			<main className={classNames(s.content, { [s.loggined]: isAuthenticated }, [])}>
 				<AppRouter />
 			</main>
 		</div>

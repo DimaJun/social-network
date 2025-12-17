@@ -21,6 +21,7 @@ interface DropdownItem {
 	text?: string;
 	href?: string;
 	Icon?: LucideIcon;
+	action?: () => void;
 }
 
 interface DropdownProps {
@@ -63,7 +64,10 @@ export function Dropdown(props: DropdownProps) {
 								) : (
 									<Button
 										className={classNames(s.item, { [s.focus]: focus }, [])}
-										onClick={close}
+										onClick={() => {
+											close();
+											item?.action();
+										}}
 									>
 										{item.Icon && <item.Icon className={s.icon} />}
 										{item.text}
