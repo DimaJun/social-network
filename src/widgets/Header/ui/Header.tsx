@@ -1,5 +1,5 @@
 import { CircleUserRound, UserRoundPen, UserStar, Settings, LogOut } from 'lucide-react';
-import { useMemo } from 'react';
+import { useCallback, useMemo } from 'react';
 
 import s from './Header.module.scss';
 
@@ -7,13 +7,28 @@ import { classNames } from '@/shared/helpers/classNames/classNames';
 import { Dropdown } from '@/shared/ui/Dropdown';
 import { getMainRoute, getProfileRoute, getSettingsRoute } from '@/shared/configs/router/router';
 import { useAppDispatch, useAppSelector } from '@/shared/hooks/store';
-import { authSliceActions, selectIsAuthenticated } from '@/features/Authorization';
+import {
+	authSliceActions,
+	selectIsAuthenticated,
+	useLogoutMutation,
+} from '@/features/Authorization';
+import { showToast } from '@/shared/lib/toaster/toast';
 
 const { logout } = authSliceActions;
 
 export function Header() {
 	const isAuthenticated = useAppSelector(selectIsAuthenticated);
 	const dispatch = useAppDispatch();
+	const [logoutReq] = useLogoutMutation();
+
+	const onLogout = useCallback(async () => {
+		await logoutReq()
+			.unwrap()
+			.then((data) => {
+				showToast.success(data.message);
+				dispatch(logout());
+			});
+	}, [dispatch, logoutReq]);
 
 	const items = useMemo(
 		() => [
@@ -35,10 +50,10 @@ export function Header() {
 			{
 				text: 'Выйти',
 				Icon: LogOut,
-				action: () => dispatch(logout()),
+				action: () => onLogout(),
 			},
 		],
-		[dispatch]
+		[onLogout]
 	);
 
 	return (
