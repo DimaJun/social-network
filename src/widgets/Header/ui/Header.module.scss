@@ -16,4 +16,9 @@
 
 .dropdown {
 	margin-left: auto;
+	pointer-events: none;
+
+	&.loggined {
+		pointer-events: auto;
+	}
 }

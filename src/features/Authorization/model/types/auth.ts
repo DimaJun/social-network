@@ -7,6 +7,7 @@ export interface AuthStateSchema {
 
 export interface RegisterResponse extends User {
 	createdAt: string;
+	updatedAt: string;
 }
 
 export interface RegisterQueryArgs {

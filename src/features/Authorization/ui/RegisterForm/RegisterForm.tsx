@@ -36,7 +36,7 @@ export function RegisterForm({ toggleLogin }: RegisterFormProps) {
 	const onSubmit = async (data: RegistrationFormData) => {
 		await register(data)
 			.unwrap()
-			.then((data) => {
+			.then(() => {
 				showToast.success('Успешная регистрация!');
 				toggleLogin();
 				reset();
@@ -62,6 +62,7 @@ export function RegisterForm({ toggleLogin }: RegisterFormProps) {
 						placeholder='Введите никнейм'
 						value={field.value}
 						onChange={field.onChange}
+						autoComplete='username'
 					/>
 				)}
 			/>
@@ -77,6 +78,7 @@ export function RegisterForm({ toggleLogin }: RegisterFormProps) {
 						type='email'
 						value={field.value}
 						onChange={field.onChange}
+						autoComplete='email'
 					/>
 				)}
 			/>

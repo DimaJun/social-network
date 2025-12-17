@@ -29,10 +29,10 @@ body {
 	grid-template-rows: var(--header-height) repeat(4, 1fr);
 	grid-template-areas:
 		'header header header header header'
-		'sidebar content content content content'
-		'sidebar content content content content'
-		'sidebar content content content content'
-		'sidebar content content content content';
+		'content content content content content'
+		'content content content content content'
+		'content content content content content'
+		'content content content content content';
 
 	flex-grow: 1;
 	max-width: 80%;
@@ -40,4 +40,13 @@ body {
 	border-radius: 16px;
 
 	transition: grid-template-columns var(--transition);
+}
+
+.app.loggined {
+	grid-template-areas:
+	'header header header header header'
+	'sidebar content content content content'
+	'sidebar content content content content'
+	'sidebar content content content content'
+	'sidebar content content content content';
 }

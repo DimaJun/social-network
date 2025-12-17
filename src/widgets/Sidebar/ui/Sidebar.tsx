@@ -8,6 +8,8 @@ import { classNames, Mods } from '@/shared/helpers/classNames/classNames';
 import { getFriendsRoute, getMainRoute, getMessengerRoute } from '@/shared/configs/router/router';
 import { Button } from '@/shared/ui/Button';
 import { LOCAL_STORAGE_SIDEBAR_COLLAPSE } from '@/shared/consts/localstorage';
+import { useAppSelector } from '@/shared/hooks/store';
+import { selectIsAuthenticated } from '@/features/Authorization';
 
 const sidebarItems: ISidebarItem[] = [
 	{
@@ -32,6 +34,7 @@ export function Sidebar() {
 		const savedValue = localStorage.getItem(LOCAL_STORAGE_SIDEBAR_COLLAPSE);
 		return savedValue === 'true';
 	});
+	const isAuthenticated = useAppSelector(selectIsAuthenticated);
 
 	const mods: Mods = {
 		[s.closed]: closed,
@@ -41,6 +44,10 @@ export function Sidebar() {
 		document.documentElement.style.setProperty('--sidebar-width', closed ? '80px' : '260px');
 		localStorage.setItem(LOCAL_STORAGE_SIDEBAR_COLLAPSE, JSON.stringify(closed));
 	}, [closed]);
+
+	if (!isAuthenticated) {
+		return null;
+	}
 
 	return (
 		<aside className={classNames(s.Sidebar, mods, [])}>

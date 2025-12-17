@@ -5,6 +5,8 @@ import s from './Header.module.scss';
 import { classNames } from '@/shared/helpers/classNames/classNames';
 import { Dropdown } from '@/shared/ui/Dropdown';
 import { getMainRoute, getProfileRoute, getSettingsRoute } from '@/shared/configs/router/router';
+import { useAppSelector } from '@/shared/hooks/store';
+import { selectIsAuthenticated } from '@/features/Authorization';
 
 const items = [
 	{
@@ -29,11 +31,13 @@ const items = [
 ];
 
 export function Header() {
+	const isAuthenticated = useAppSelector(selectIsAuthenticated);
+
 	return (
 		<div className={classNames(s.Header, {}, [])}>
 			<p className={s.logo}>Whisper</p>
 			<Dropdown
-				className={s.dropdown}
+				className={classNames(s.dropdown, { [s.loggined]: isAuthenticated }, [])}
 				trigger={
 					<CircleUserRound
 						className={s.dropdown}

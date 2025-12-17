@@ -1,14 +1,19 @@
 import { Controller, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useNavigate } from 'react-router';
 
 import s from '../Authorization.module.scss';
 import { LoginFormData, loginSchema } from '../../model/schemas/login';
+import { authSliceActions } from '../../model/slice/authSlice';
 
 import { Input } from '@/shared/ui/Input';
 import { Button } from '@/shared/ui/Button';
 import { useLoginMutation } from '@/features/Authorization/api/auth';
 import { showToast } from '@/shared/lib/toaster/toast';
 import { ApiError } from '@/shared/configs/api';
+import { useAppDispatch } from '@/shared/hooks/store';
+
+const { setCredentials } = authSliceActions;
 
 export function LoginForm() {
 	const {
@@ -24,15 +29,19 @@ export function LoginForm() {
 			password: '',
 		},
 	});
+	const navigate = useNavigate();
+	const dispatch = useAppDispatch();
 
 	const [login, { isLoading }] = useLoginMutation();
 
 	const onSubmit = async (data: LoginFormData) => {
 		await login(data)
 			.unwrap()
-			.then((data) => {
+			.then((response) => {
 				showToast.success('Успешная авторизация!');
 				reset();
+				dispatch(setCredentials(response));
+				void navigate('/');
 			})
 			.catch((e: ApiError) => {
 				showToast.error(e.data.message);
@@ -55,6 +64,8 @@ export function LoginForm() {
 						placeholder='Введите почту'
 						value={field.value}
 						onChange={field.onChange}
+						type='email'
+						autoComplete='email'
 					/>
 				)}
 			/>
