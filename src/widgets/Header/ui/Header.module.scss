@@ -14,8 +14,22 @@
 	user-select: none;
 }
 
-.dropdown {
+.right {
+	display: flex;
+	align-items: center;
 	margin-left: auto;
+}
+
+.greeting {
+	font-size: var(--font-size-m);
+	margin-right: 10px;
+
+	span {
+		color: var(--color-text-accent);
+	}
+}
+
+.dropdown {
 	pointer-events: none;
 
 	&.loggined {

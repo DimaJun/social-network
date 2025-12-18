@@ -10,6 +10,7 @@ import { useAppDispatch, useAppSelector } from '@/shared/hooks/store';
 import {
 	authSliceActions,
 	selectIsAuthenticated,
+	selectUserData,
 	useLogoutMutation,
 } from '@/features/Authorization';
 import { showToast } from '@/shared/lib/toaster/toast';
@@ -18,6 +19,7 @@ const { logout } = authSliceActions;
 
 export function Header() {
 	const isAuthenticated = useAppSelector(selectIsAuthenticated);
+	const userData = useAppSelector(selectUserData);
 	const dispatch = useAppDispatch();
 	const [logoutReq] = useLogoutMutation();
 
@@ -59,16 +61,23 @@ export function Header() {
 	return (
 		<div className={classNames(s.Header, {}, [])}>
 			<p className={s.logo}>Whisper</p>
-			<Dropdown
-				className={classNames(s.dropdown, { [s.loggined]: isAuthenticated }, [])}
-				trigger={
-					<CircleUserRound
-						className={s.dropdown}
-						size={40}
-					/>
-				}
-				items={items}
-			/>
+			<div className={s.right}>
+				{userData && (
+					<p className={s.greeting}>
+						Привет, <span>{userData.username}</span>!
+					</p>
+				)}
+				<Dropdown
+					className={classNames(s.dropdown, { [s.loggined]: isAuthenticated }, [])}
+					trigger={
+						<CircleUserRound
+							className={s.dropdown}
+							size={40}
+						/>
+					}
+					items={items}
+				/>
+			</div>
 		</div>
 	);
 }
