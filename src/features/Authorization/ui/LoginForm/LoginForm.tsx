@@ -1,9 +1,10 @@
 import { Controller, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useNavigate } from 'react-router';
+import { useTranslation } from 'react-i18next';
 
 import s from '../Authorization.module.scss';
-import { LoginFormData, loginSchema } from '../../model/schemas/login';
+import { LoginFormData, createLoginSchema } from '../../model/schemas/login';
 import { authSliceActions } from '../../model/slice/authSlice';
 
 import { Input } from '@/shared/ui/Input';
@@ -12,17 +13,20 @@ import { useLoginMutation } from '@/features/Authorization/api/auth';
 import { showToast } from '@/shared/lib/toaster/toast';
 import { ApiError } from '@/shared/configs/api';
 import { useAppDispatch } from '@/shared/hooks/store';
+import { Locale } from '@/shared/types/locales';
 
 const { setCredentials } = authSliceActions;
 
 export function LoginForm() {
+	const { t, i18n } = useTranslation('auth');
+	const locale = i18n.language as Locale;
 	const {
 		control,
 		handleSubmit,
 		reset,
 		formState: { errors },
 	} = useForm<LoginFormData>({
-		resolver: zodResolver(loginSchema),
+		resolver: zodResolver(createLoginSchema(locale)),
 		mode: 'onChange',
 		defaultValues: {
 			email: '',
@@ -38,7 +42,7 @@ export function LoginForm() {
 		await login(data)
 			.unwrap()
 			.then((response) => {
-				showToast.success('Успешная авторизация!');
+				showToast.success(t('success-login'));
 				reset();
 				dispatch(setCredentials(response));
 				void navigate('/');
@@ -53,15 +57,15 @@ export function LoginForm() {
 			className={s.form}
 			onSubmit={handleSubmit(onSubmit)}
 		>
-			<h1 className={s.header}>Логин</h1>
+			<h1 className={s.header}>{t('login')}</h1>
 			<Controller
 				name='email'
 				control={control}
 				render={({ field }) => (
 					<Input
 						className={s.input}
-						label='Почта'
-						placeholder='Введите почту'
+						label={t('email')}
+						placeholder={t('enter-email')}
 						value={field.value}
 						onChange={field.onChange}
 						type='email'
@@ -76,8 +80,8 @@ export function LoginForm() {
 				render={({ field }) => (
 					<Input
 						className={s.input}
-						label='Пароль'
-						placeholder='Введите пароль'
+						label={t('password')}
+						placeholder={t('enter-password')}
 						type='password'
 						value={field.value}
 						onChange={field.onChange}
@@ -91,7 +95,7 @@ export function LoginForm() {
 				type='submit'
 				variant='background'
 			>
-				Логин
+				{t('login')}
 			</Button>
 		</form>
 	);

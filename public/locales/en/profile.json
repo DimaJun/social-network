@@ -1,0 +1,10 @@
+{
+	"age": "Age",
+	"city": "City",
+	"nationality": "Nationality",
+	"likes": "Likes",
+	"dislike": "Dislike",
+	"views": "Views",
+	"comments": "Comments",
+	"enter-a-comment": "Enter a comment.."
+}

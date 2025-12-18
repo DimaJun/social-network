@@ -7,6 +7,8 @@ import '@/app/styles/main.scss';
 import { ThemeProvider } from '@/app/providers/ThemeProvider';
 import { store } from '@/app/store';
 
+import '@/shared/configs/i18n/i18n';
+
 const container = document.getElementById('root');
 
 if (!container) {

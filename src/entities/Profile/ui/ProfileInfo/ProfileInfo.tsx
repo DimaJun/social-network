@@ -1,27 +1,30 @@
 import { EyeIcon, MessageCircle, ThumbsDown, ThumbsUp } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 import s from './ProfileInfo.module.scss';
 
 import { Button } from '@/shared/ui/Button';
 
 export function ProfileInfo() {
+	const { t } = useTranslation('profile');
+
 	return (
 		<div className={s.actions}>
 			<Button>
 				<ThumbsUp size={24} />
-				Лайк
+				{t('likes')}
 			</Button>
 			<Button>
 				<ThumbsDown size={24} />
-				Дизлайк
+				{t('dislike')}
 			</Button>
 			<Button>
 				<EyeIcon size={24} />
-				Просмотров
+				{t('views')}
 			</Button>
 			<Button>
 				<MessageCircle size={24} />
-				Комментариев
+				{t('comments')}
 			</Button>
 		</div>
 	);

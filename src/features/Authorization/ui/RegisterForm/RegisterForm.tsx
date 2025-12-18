@@ -1,27 +1,31 @@
 import { Controller, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useTranslation } from 'react-i18next';
 
 import s from '../Authorization.module.scss';
-import { registerSchema, RegistrationFormData } from '../../model/schemas/registration';
+import { createRegisterSchema, RegistrationFormData } from '../../model/schemas/registration';
 import { useRegisterMutation } from '../../api/auth';
 
 import { Input } from '@/shared/ui/Input';
 import { Button } from '@/shared/ui/Button';
 import { showToast } from '@/shared/lib/toaster/toast';
 import { ApiError } from '@/shared/configs/api';
+import { Locale } from '@/shared/types/locales';
 
 interface RegisterFormProps {
 	toggleLogin: () => void;
 }
 
 export function RegisterForm({ toggleLogin }: RegisterFormProps) {
+	const { t, i18n } = useTranslation('auth');
+	const locale = i18n.language as Locale;
 	const {
 		control,
 		handleSubmit,
 		formState: { errors },
 		reset,
 	} = useForm<RegistrationFormData>({
-		resolver: zodResolver(registerSchema),
+		resolver: zodResolver(createRegisterSchema(locale)),
 		mode: 'onChange',
 		defaultValues: {
 			email: '',
@@ -37,7 +41,7 @@ export function RegisterForm({ toggleLogin }: RegisterFormProps) {
 		await register(data)
 			.unwrap()
 			.then(() => {
-				showToast.success('Успешная регистрация!');
+				showToast.success(t('success-login'));
 				toggleLogin();
 				reset();
 			})
@@ -51,15 +55,15 @@ export function RegisterForm({ toggleLogin }: RegisterFormProps) {
 			className={s.form}
 			onSubmit={handleSubmit(onSubmit)}
 		>
-			<h1 className={s.header}>Регистрация</h1>
+			<h1 className={s.header}>{t('registration')}</h1>
 			<Controller
 				name='username'
 				control={control}
 				render={({ field }) => (
 					<Input
 						className={s.input}
-						label='Никнейм'
-						placeholder='Введите никнейм'
+						label={t('nickname')}
+						placeholder={t('enter-nickname')}
 						value={field.value}
 						onChange={field.onChange}
 						autoComplete='username'
@@ -73,8 +77,8 @@ export function RegisterForm({ toggleLogin }: RegisterFormProps) {
 				render={({ field }) => (
 					<Input
 						className={s.input}
-						label='Почта'
-						placeholder='Введите почту'
+						label={t('email')}
+						placeholder={t('enter-email')}
 						type='email'
 						value={field.value}
 						onChange={field.onChange}
@@ -89,8 +93,8 @@ export function RegisterForm({ toggleLogin }: RegisterFormProps) {
 				render={({ field }) => (
 					<Input
 						className={s.input}
-						label='Пароль'
-						placeholder='Введите пароль'
+						label={t('password')}
+						placeholder={t('enter-password')}
 						type='password'
 						value={field.value}
 						onChange={field.onChange}
@@ -104,8 +108,8 @@ export function RegisterForm({ toggleLogin }: RegisterFormProps) {
 				render={({ field }) => (
 					<Input
 						className={s.input}
-						label='Подтверждение пароля'
-						placeholder='Подтвердите пароль'
+						label={t('password-confirm')}
+						placeholder={t('password-confirm-place')}
 						type='password'
 						value={field.value}
 						onChange={field.onChange}
@@ -119,7 +123,7 @@ export function RegisterForm({ toggleLogin }: RegisterFormProps) {
 				disabled={isLoading}
 				type='submit'
 			>
-				Регистрация
+				{t('registration')}
 			</Button>
 		</form>
 	);

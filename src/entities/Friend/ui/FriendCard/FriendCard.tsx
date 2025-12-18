@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next';
+
 import s from './FriendCard.module.scss';
 
 import { Card } from '@/shared/ui/Card';
@@ -5,6 +7,8 @@ import { Avatar } from '@/shared/ui/Avatar';
 import { Button } from '@/shared/ui/Button';
 
 export function FriendCard() {
+	const { t } = useTranslation('friends');
+
 	return (
 		<Card
 			className={s.card}
@@ -13,7 +17,7 @@ export function FriendCard() {
 			<div className={s.details}>
 				<Avatar size={80} />
 				<div className={s.info}>
-					<p className={s.isFriend}>Не ваш друг</p>
+					<p className={s.isFriend}>{t('not-your-friend')}</p>
 					<p className={s.username}>Dima Rui</p>
 					<p className={s.city}>Netishyn</p>
 				</div>
@@ -23,19 +27,19 @@ export function FriendCard() {
 					className={s.action}
 					variant='outline'
 				>
-					Профиль
+					{t('profile')}
 				</Button>
 				<Button
 					className={s.action}
 					variant='outline'
 				>
-					Написать
+					{t('send-message')}
 				</Button>
 				<Button
 					className={s.action}
 					variant='outline'
 				>
-					Добавить в друзья
+					{t('add-to-friends')}
 				</Button>
 			</div>
 		</Card>

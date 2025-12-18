@@ -1,5 +1,6 @@
 import { CircleUserRound, UserRoundPen, UserStar, Settings, LogOut } from 'lucide-react';
 import { useCallback, useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import s from './Header.module.scss';
 
@@ -18,6 +19,7 @@ import { showToast } from '@/shared/lib/toaster/toast';
 const { logout } = authSliceActions;
 
 export function Header() {
+	const { t } = useTranslation('header');
 	const isAuthenticated = useAppSelector(selectIsAuthenticated);
 	const userData = useAppSelector(selectUserData);
 	const dispatch = useAppDispatch();
@@ -35,27 +37,27 @@ export function Header() {
 	const items = useMemo(
 		() => [
 			{
-				text: 'Профиль',
+				text: t('profile'),
 				href: getProfileRoute(),
 				Icon: UserRoundPen,
 			},
 			{
-				text: 'Админка',
+				text: t('admin'),
 				href: getMainRoute(),
 				Icon: UserStar,
 			},
 			{
-				text: 'Настройки',
+				text: t('settings'),
 				href: getSettingsRoute(),
 				Icon: Settings,
 			},
 			{
-				text: 'Выйти',
+				text: t('logout'),
 				Icon: LogOut,
 				action: () => onLogout(),
 			},
 		],
-		[onLogout]
+		[onLogout, t]
 	);
 
 	return (
@@ -64,7 +66,7 @@ export function Header() {
 			<div className={s.right}>
 				{userData && (
 					<p className={s.greeting}>
-						Привет, <span>{userData.username}</span>!
+						{t('greeting')}, <span>{userData.username}</span>!
 					</p>
 				)}
 				<Dropdown

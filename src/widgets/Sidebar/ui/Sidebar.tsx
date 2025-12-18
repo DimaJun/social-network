@@ -1,5 +1,6 @@
 import { House, Users, Mail, ChevronLeftSquare, ChevronRightSquare } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import s from './Sidebar.module.scss';
 import { ISidebarItem, SidebarItem } from './SidebarItem/SidebarItem';
@@ -11,25 +12,8 @@ import { LOCAL_STORAGE_SIDEBAR_COLLAPSE } from '@/shared/consts/localstorage';
 import { useAppSelector } from '@/shared/hooks/store';
 import { selectIsAuthenticated } from '@/features/Authorization';
 
-const sidebarItems: ISidebarItem[] = [
-	{
-		path: getMainRoute(),
-		text: 'Главная',
-		Icon: House,
-	},
-	{
-		path: getFriendsRoute(),
-		text: 'Друзья',
-		Icon: Users,
-	},
-	{
-		path: getMessengerRoute(),
-		text: 'Сообщения',
-		Icon: Mail,
-	},
-];
-
 export function Sidebar() {
+	const { t } = useTranslation('sidebar');
 	const [closed, setClosed] = useState<boolean>(() => {
 		const savedValue = localStorage.getItem(LOCAL_STORAGE_SIDEBAR_COLLAPSE);
 		return savedValue === 'true';
@@ -39,6 +23,27 @@ export function Sidebar() {
 	const mods: Mods = {
 		[s.closed]: closed,
 	};
+
+	const sidebarItems: ISidebarItem[] = useMemo(
+		() => [
+			{
+				path: getMainRoute(),
+				text: t('main'),
+				Icon: House,
+			},
+			{
+				path: getFriendsRoute(),
+				text: t('friends'),
+				Icon: Users,
+			},
+			{
+				path: getMessengerRoute(),
+				text: t('messenger'),
+				Icon: Mail,
+			},
+		],
+		[t]
+	);
 
 	useEffect(() => {
 		document.documentElement.style.setProperty('--sidebar-width', closed ? '80px' : '260px');

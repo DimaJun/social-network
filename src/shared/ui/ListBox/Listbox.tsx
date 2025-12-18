@@ -12,6 +12,7 @@ import { classNames } from '@/shared/helpers/classNames/classNames';
 
 interface ListboxOption {
 	value?: string;
+	label?: string;
 	disabled?: boolean;
 }
 
@@ -26,7 +27,7 @@ interface ListboxProps {
 export function Listbox(props: ListboxProps) {
 	const { className, options, value, onChange, label } = props;
 
-	const selected = options.find((opt) => opt.value === value);
+	const selected = options?.find((opt) => opt.value === value);
 
 	return (
 		<HListBox
@@ -37,7 +38,7 @@ export function Listbox(props: ListboxProps) {
 		>
 			{label && <span>{label}:</span>}
 			<ListboxButton className={s.trigger}>
-				{selected.value}
+				{selected?.label ?? '—'}
 				<ChevronDown />
 			</ListboxButton>
 			<ListboxOptions className={s.options}>
@@ -48,7 +49,7 @@ export function Listbox(props: ListboxProps) {
 						value={opt.value}
 						disabled={opt.disabled}
 					>
-						{opt.value}
+						{opt.label}
 					</ListboxOption>
 				))}
 			</ListboxOptions>

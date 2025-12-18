@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { RegisterForm } from './RegisterForm/RegisterForm';
 import s from './Authorization.module.scss';
@@ -8,6 +9,7 @@ import { Button } from '@/shared/ui/Button';
 
 export function Authorization() {
 	const [isLogin, setIsLogin] = useState(false);
+	const { t } = useTranslation('auth');
 
 	const toggleIsLogin = () => {
 		setIsLogin((prev) => !prev);
@@ -21,7 +23,7 @@ export function Authorization() {
 					className={s.toggleForm}
 					onClick={toggleIsLogin}
 				>
-					Нету аккаунта?
+					{t('no-account')}
 				</Button>
 			</>
 		);
@@ -34,7 +36,7 @@ export function Authorization() {
 				className={s.toggleForm}
 				onClick={toggleIsLogin}
 			>
-				Уже зарегистрированны?
+				{t('already-registered')}
 			</Button>
 		</>
 	);
