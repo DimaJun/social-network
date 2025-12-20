@@ -5,6 +5,7 @@ import {
 	getFriendsRoute,
 	getMainRoute,
 	getMessengerRoute,
+	getMyProfileRoute,
 	getProfileRoute,
 	getSettingsRoute,
 	Routes,
@@ -42,6 +43,11 @@ export const routeConfig: RouteConfig = {
 	},
 	[Routes.PROFILE]: {
 		path: getProfileRoute(),
+		element: <ProfilePage />,
+		authNeeded: true,
+	},
+	[Routes.MY_PROFILE]: {
+		path: getMyProfileRoute(),
 		element: <ProfilePage />,
 		authNeeded: true,
 	},

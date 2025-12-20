@@ -6,7 +6,7 @@ import s from './Header.module.scss';
 
 import { classNames } from '@/shared/helpers/classNames/classNames';
 import { Dropdown } from '@/shared/ui/Dropdown';
-import { getMainRoute, getProfileRoute, getSettingsRoute } from '@/shared/configs/router/router';
+import { getMainRoute, getMyProfileRoute, getSettingsRoute } from '@/shared/configs/router/router';
 import { useAppDispatch, useAppSelector } from '@/shared/hooks/store';
 import {
 	authSliceActions,
@@ -38,7 +38,7 @@ export function Header() {
 		() => [
 			{
 				text: t('profile'),
-				href: getProfileRoute(),
+				href: getMyProfileRoute(),
 				Icon: UserRoundPen,
 			},
 			{
