@@ -7,7 +7,7 @@ import {
 
 import { baseApi } from '@/shared/configs/api';
 
-export const authApi = baseApi.injectEndpoints({
+const authApi = baseApi.injectEndpoints({
 	endpoints: (build) => ({
 		register: build.mutation<RegisterResponse, RegisterQueryArgs>({
 			query: (data) => ({

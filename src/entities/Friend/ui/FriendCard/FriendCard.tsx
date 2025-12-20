@@ -5,9 +5,15 @@ import s from './FriendCard.module.scss';
 import { Card } from '@/shared/ui/Card';
 import { Avatar } from '@/shared/ui/Avatar';
 import { Button } from '@/shared/ui/Button';
+import { FriendProfileCard } from '@/entities/Friend/model/types/friend';
 
-export function FriendCard() {
+interface FriendCardProps {
+	profile?: FriendProfileCard;
+}
+
+export function FriendCard({ profile }: FriendCardProps) {
 	const { t } = useTranslation('friends');
+	const { city, username, avatar } = profile;
 
 	return (
 		<Card
@@ -15,11 +21,15 @@ export function FriendCard() {
 			padding='16'
 		>
 			<div className={s.details}>
-				<Avatar size={80} />
+				<Avatar
+					size={80}
+					rounded
+					src={avatar ?? undefined}
+				/>
 				<div className={s.info}>
 					<p className={s.isFriend}>{t('not-your-friend')}</p>
-					<p className={s.username}>Dima Rui</p>
-					<p className={s.city}>Netishyn</p>
+					<p className={s.username}>{username}</p>
+					{city && <p className={s.city}>{city}</p>}
 				</div>
 			</div>
 			<div className={s.actions}>

@@ -2,7 +2,7 @@ import { Profile } from '../model/types/profile';
 
 import { baseApi } from '@/shared/configs/api';
 
-export const profileApi = baseApi.injectEndpoints({
+const profileApi = baseApi.injectEndpoints({
 	endpoints: (build) => ({
 		getMyProfile: build.query<Profile, void>({
 			query: () => ({
