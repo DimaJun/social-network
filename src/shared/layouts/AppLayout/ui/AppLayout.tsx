@@ -38,7 +38,7 @@ export function AppLayout() {
 			.catch(() => {
 				dispatch(logout());
 			});
-	}, [dispatch, navigate, refresh]);
+	}, []);
 
 	return (
 		<div className={classNames('app', mods, [])}>
