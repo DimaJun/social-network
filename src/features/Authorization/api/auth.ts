@@ -29,9 +29,16 @@ const authApi = baseApi.injectEndpoints({
 				method: 'POST',
 			}),
 		}),
+		refresh: build.query<AuthStateSchema, void>({
+			query: () => ({
+				url: '/auth/refresh',
+				method: 'GET',
+			}),
+		}),
 	}),
 });
 
 export const { useRegisterMutation } = authApi;
 export const { useLoginMutation } = authApi;
 export const { useLogoutMutation } = authApi;
+export const { useLazyRefreshQuery } = authApi;

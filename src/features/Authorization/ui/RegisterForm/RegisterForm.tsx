@@ -41,7 +41,7 @@ export function RegisterForm({ toggleLogin }: RegisterFormProps) {
 		await register(data)
 			.unwrap()
 			.then(() => {
-				showToast.success(t('success-login'));
+				showToast.success(t('success-registration'));
 				toggleLogin();
 				reset();
 			})

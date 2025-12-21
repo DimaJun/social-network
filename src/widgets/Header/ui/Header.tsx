@@ -28,11 +28,11 @@ export function Header() {
 	const onLogout = useCallback(async () => {
 		await logoutReq()
 			.unwrap()
-			.then((data) => {
-				showToast.success(data.message);
+			.then(() => {
+				showToast.success(t('success-logout'));
 				dispatch(logout());
 			});
-	}, [dispatch, logoutReq]);
+	}, [dispatch, logoutReq, t]);
 
 	const items = useMemo(
 		() => [

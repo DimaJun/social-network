@@ -3,5 +3,6 @@
 	"admin": "Админка",
 	"settings": "Настройки",
 	"logout": "Выйти",
-	"greeting": "Привет"
+	"greeting": "Привет",
+  "success-logout": "Успешно!"
 }

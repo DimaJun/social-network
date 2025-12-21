@@ -3,5 +3,6 @@
 	"admin": "Admin",
 	"settings": "Settings",
 	"logout": "Logout",
-	"greeting": "Hello"
+	"greeting": "Hello",
+  "success-logout": "Success logout!"
 }
