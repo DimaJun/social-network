@@ -11,10 +11,10 @@ interface FriendsListProps {
 export function FriendsList({ friends }: FriendsListProps) {
 	return (
 		<div className={s.list}>
-			{friends.length > 0 ? (
+			{friends && friends.length > 0 ? (
 				friends.map((friend) => (
 					<FriendCard
-						key={friend.username}
+						key={friend.id}
 						profile={friend}
 					/>
 				))
