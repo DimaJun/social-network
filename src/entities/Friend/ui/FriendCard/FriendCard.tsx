@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router';
 
 import s from './FriendCard.module.scss';
 
@@ -6,6 +7,8 @@ import { Card } from '@/shared/ui/Card';
 import { Avatar } from '@/shared/ui/Avatar';
 import { Button } from '@/shared/ui/Button';
 import { FriendProfileCard } from '@/entities/Friend/model/types/friend';
+import { useAppSelector } from '@/shared/hooks/store';
+import { selectUserData } from '@/features/Authorization';
 
 interface FriendCardProps {
 	profile?: FriendProfileCard;
@@ -13,7 +16,20 @@ interface FriendCardProps {
 
 export function FriendCard({ profile }: FriendCardProps) {
 	const { t } = useTranslation('friends');
-	const { city, username, avatar } = profile;
+	const navigate = useNavigate();
+	const userData = useAppSelector(selectUserData);
+	const { city, username, avatar, id, userId } = profile;
+
+	const onProfileClick = () => {
+		if (userData.id === userId) {
+			navigate('/profile/my');
+		} else {
+			navigate(`/profile/${id}`);
+		}
+	};
+
+	console.log('userData.id:', userData.id, typeof userData.id);
+	console.log('userId:', userId, typeof userId);
 
 	return (
 		<Card
@@ -36,6 +52,7 @@ export function FriendCard({ profile }: FriendCardProps) {
 				<Button
 					className={s.action}
 					variant='outline'
+					onClick={onProfileClick}
 				>
 					{t('profile')}
 				</Button>

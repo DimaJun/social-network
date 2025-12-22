@@ -13,5 +13,5 @@ export const getFriendsRoute = () => '/friends';
 export const getMessengerRoute = () => '/messenger';
 export const getSettingsRoute = () => '/settings';
 export const getAuthRoute = () => '/auth';
-export const getProfileRoute = (id?: string) => `/profile/${id}`;
+export const getProfileRoute = () => `/profile/:id`;
 export const getMyProfileRoute = () => '/profile/my';

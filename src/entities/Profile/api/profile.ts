@@ -10,7 +10,14 @@ const profileApi = baseApi.injectEndpoints({
 				method: 'GET',
 			}),
 		}),
+		getProfileById: build.query<Profile, { id: string }>({
+			query: ({ id }) => ({
+				url: `/profile/${id}`,
+				method: 'GET',
+			}),
+		}),
 	}),
 });
 
-export const { useGetMyProfileQuery } = profileApi;
+export const { useLazyGetMyProfileQuery } = profileApi;
+export const { useLazyGetProfileByIdQuery } = profileApi;
