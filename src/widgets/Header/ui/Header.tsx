@@ -26,13 +26,15 @@ export function Header() {
 	const [logoutReq] = useLogoutMutation();
 
 	const onLogout = useCallback(async () => {
-		await logoutReq()
-			.unwrap()
-			.then(() => {
-				showToast.success(t('success-logout'));
-				dispatch(logout());
-			});
-	}, [dispatch, logoutReq, t]);
+		if (userData) {
+			await logoutReq()
+				.unwrap()
+				.then(() => {
+					showToast.success(t('success-logout'));
+					dispatch(logout());
+				});
+		}
+	}, [dispatch, logoutReq, t, userData]);
 
 	const items = useMemo(
 		() => [
